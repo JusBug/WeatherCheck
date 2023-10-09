@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = true // searchBar 활성화시 백그라운드 어둡게
         // searchController.hidesNavigationBarDuringPresentation = false // searchBar 활성화시 title 표시 여부
         self.navigationItem.searchController = searchController
+        self.navigationItem.searchController?.searchBar.tintColor = UIColor.white // 텍스트 컬러를 white로 설정
         self.navigationItem.searchController?.searchBar.placeholder = "Search for a city or airport"
         self.navigationItem.title = "Weather"
         self.navigationItem.hidesSearchBarWhenScrolling = false // 스크롤시 searchBar 표시 여부
