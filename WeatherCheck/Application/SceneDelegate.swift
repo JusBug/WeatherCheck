@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  WeatherCheck
 //
-//  Created by 박종화 on 2023/10/09.
+//  Created by Jusbug on 2023/10/09.
 //
 
 import UIKit

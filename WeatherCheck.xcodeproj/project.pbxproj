@@ -56,15 +56,55 @@
 		D0235D062AD3EB4A004437B8 /* WeatherCheck */ = {
 			isa = PBXGroup;
 			children = (
-				D0235D072AD3EB4A004437B8 /* AppDelegate.swift */,
-				D0235D092AD3EB4A004437B8 /* SceneDelegate.swift */,
-				D0235D0B2AD3EB4A004437B8 /* ViewController.swift */,
-				D0235D0D2AD3EB4A004437B8 /* Main.storyboard */,
-				D0235D102AD3EB4C004437B8 /* Assets.xcassets */,
-				D0235D122AD3EB4C004437B8 /* LaunchScreen.storyboard */,
-				D0235D152AD3EB4C004437B8 /* Info.plist */,
+				D0235D1F2AD3EC9C004437B8 /* Controller */,
+				D0235D1E2AD3EC96004437B8 /* Model */,
+				D0235D1D2AD3EC91004437B8 /* View */,
+				D0235D1C2AD3EC8A004437B8 /* Resource */,
+				D0235D1B2AD3EC7E004437B8 /* Application */,
 			);
 			path = WeatherCheck;
+			sourceTree = "<group>";
+		};
+		D0235D1B2AD3EC7E004437B8 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D0235D092AD3EB4A004437B8 /* SceneDelegate.swift */,
+				D0235D072AD3EB4A004437B8 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D0235D1C2AD3EC8A004437B8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D0235D102AD3EB4C004437B8 /* Assets.xcassets */,
+				D0235D152AD3EB4C004437B8 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		D0235D1D2AD3EC91004437B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D0235D0D2AD3EB4A004437B8 /* Main.storyboard */,
+				D0235D122AD3EB4C004437B8 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D0235D1E2AD3EC96004437B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D0235D1F2AD3EC9C004437B8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D0235D0B2AD3EB4A004437B8 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,7 +334,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3Y9T7FAS4K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherCheck/Info.plist;
+				INFOPLIST_FILE = WeatherCheck/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -322,7 +362,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3Y9T7FAS4K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherCheck/Info.plist;
+				INFOPLIST_FILE = WeatherCheck/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
