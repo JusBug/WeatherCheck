@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         self.navigationItem.hidesSearchBarWhenScrolling = false // 스크롤시 searchBar 표시 여부
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
+
     private func ininDelegateAndDataSource() {
         cityCollectionView.delegate = self
         cityCollectionView.dataSource = self
@@ -42,6 +42,22 @@ class ViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         cityCollectionView.collectionViewLayout = layout
+    }
+    
+    @IBAction func tapEditButton(_ sender: Any) {
+        print("dasdasds")
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let editList = UIAlertAction(title: "Edit List", style: .default)
+        let celsius = UIAlertAction(title: "Celsius", style: .default)
+        let fahrenheit = UIAlertAction(title: "Fahrenheit", style: .default)
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        actionSheet.addAction(editList)
+        actionSheet.addAction(celsius)
+        actionSheet.addAction(fahrenheit)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true, completion: nil)
     }
 }
 

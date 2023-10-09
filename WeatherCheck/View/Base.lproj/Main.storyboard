@@ -42,7 +42,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="oA6-Bu-xiq"/>
+                    <navigationItem key="navigationItem" id="oA6-Bu-xiq">
+                        <barButtonItem key="rightBarButtonItem" image="ellipsis.circle" catalog="system" style="plain" id="Teh-Vp-S17">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="CAv-hD-nA3">
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="ellipsis.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="tapEditButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="99g-AH-WZh"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cityCollectionView" destination="1Vr-0L-abM" id="VNh-wk-Qms"/>
                     </connections>
@@ -71,6 +82,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
