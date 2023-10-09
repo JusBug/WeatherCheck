@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         configureNavigationItem()
         ininDelegateAndDataSource()
         registerNib()
+        configureLayout()
     }
     
     private func configureNavigationItem() {
@@ -24,7 +25,7 @@ class ViewController: UIViewController {
         self.navigationItem.searchController = searchController
         self.navigationItem.searchController?.searchBar.placeholder = "Search for a city or airport"
         self.navigationItem.title = "Weather"
-        self.navigationItem.hidesSearchBarWhenScrolling = true // 스크롤시 searchBar 표시 여부
+        self.navigationItem.hidesSearchBarWhenScrolling = false // 스크롤시 searchBar 표시 여부
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -35,6 +36,12 @@ class ViewController: UIViewController {
     
     private func registerNib() {
         cityCollectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+    }
+    
+    private func configureLayout() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        cityCollectionView.collectionViewLayout = layout
     }
 }
 
@@ -55,7 +62,13 @@ extension ViewController: UICollectionViewDelegate {
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width - 10, height: 100)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
 }
 
 
