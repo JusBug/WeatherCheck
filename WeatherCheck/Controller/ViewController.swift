@@ -13,12 +13,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationItem()
 
     }
     
     private func configureNavigationItem() {
-        searchBar.placeholder = "Search for a city or airport"
-        self.navigationItem.titleView = searchBar
+        let searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController = searchController
+        self.navigationItem.searchController?.searchBar.placeholder = "Search for a city or airport"
     }
 }
 
