@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     private func configureNavigationItem() {
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = true // searchBar 활성화시 백그라운드 어둡게
         // searchController.hidesNavigationBarDuringPresentation = false // searchBar 활성화시 title 표시 여부
         self.navigationItem.searchController = searchController
         self.navigationItem.searchController?.searchBar.placeholder = "Search for a city or airport"
