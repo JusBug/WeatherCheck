@@ -38,14 +38,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nFJ-YQ-2Og">
-                                <rect key="frame" x="16" y="116" width="361" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="xHz-jX-7Sj"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -53,7 +45,6 @@
                     <navigationItem key="navigationItem" id="oA6-Bu-xiq"/>
                     <connections>
                         <outlet property="cityCollectionView" destination="1Vr-0L-abM" id="VNh-wk-Qms"/>
-                        <outlet property="searchBar" destination="nFJ-YQ-2Og" id="Wws-Jy-BMq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

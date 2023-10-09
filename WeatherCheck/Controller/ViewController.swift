@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cityCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -19,8 +18,12 @@ class ViewController: UIViewController {
     
     private func configureNavigationItem() {
         let searchController = UISearchController(searchResultsController: nil)
+        // searchController.hidesNavigationBarDuringPresentation = false // searchBar 활성화시 title 표시 여부
         self.navigationItem.searchController = searchController
         self.navigationItem.searchController?.searchBar.placeholder = "Search for a city or airport"
+        self.navigationItem.title = "Weather"
+        self.navigationItem.hidesSearchBarWhenScrolling = false // 스크롤시 searchBar 표시 여부
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
