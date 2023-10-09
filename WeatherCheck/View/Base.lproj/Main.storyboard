@@ -63,6 +63,21 @@
             </objects>
             <point key="canvasLocation" x="748.85496183206101" y="-39.436619718309863"/>
         </scene>
+        <!--Second View Controller-->
+        <scene sceneID="RtS-Ec-MEM">
+            <objects>
+                <viewController storyboardIdentifier="secondViewController" id="Px0-b9-EqR" customClass="SecondViewController" customModule="WeatherCheck" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WLS-4Z-TDL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ckp-YS-P6d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ig8-e7-q3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636" y="-39"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="FTB-On-yMB">
             <objects>
