@@ -8,12 +8,20 @@
 import UIKit
 
 final class SecondViewController: UIViewController {
-    
+    @IBOutlet weak var inforCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTitle()
         configureTapBar()
+    }
+    
+    private func configureNavigationItem() {
+        self.navigationItem.searchController?.searchBar.tintColor = UIColor.white // 텍스트 컬러를 white로 설정
+        self.navigationItem.searchController?.searchBar.placeholder = "Search for a city or airport"
+        self.navigationItem.title = "Weather"
+        self.navigationItem.hidesSearchBarWhenScrolling = false // 스크롤시 searchBar 표시 여부
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func configureTitle() {
