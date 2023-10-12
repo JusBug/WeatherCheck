@@ -80,7 +80,11 @@ extension MainViewController: UICollectionViewDelegate {
         
         secondVC.modalTransitionStyle = .coverVertical
         secondVC.modalPresentationStyle = .fullScreen
-        self.present(secondVC, animated: true, completion: nil)
+        
+        //self.present(secondVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(secondVC, animated: true) // 뒤로기가 버튼 자동 생성
+        //self.navigationController?.popToViewController(secondVC, animated: true)
+        
     }
 }
 

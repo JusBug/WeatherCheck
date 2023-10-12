@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748.85496183206101" y="-39.436619718309863"/>
+            <point key="canvasLocation" x="679" y="-39"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="RtS-Ec-MEM">
@@ -72,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OoW-1d-82y">
-                                <rect key="frame" x="16" y="103" width="361" height="715"/>
+                                <rect key="frame" x="16" y="112" width="361" height="706"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WwH-pl-rCP">
@@ -87,13 +87,14 @@
                         <viewLayoutGuide key="safeArea" id="Ckp-YS-P6d"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="LL1-st-svh"/>
                     <connections>
                         <outlet property="inforCollectionView" destination="OoW-1d-82y" id="Vbe-HR-wWj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ig8-e7-q3X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1635.8778625954199" y="-39.436619718309863"/>
+            <point key="canvasLocation" x="1494" y="-39"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FTB-On-yMB">

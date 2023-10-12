@@ -12,21 +12,31 @@ final class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTitle()
+        configureNavigationItem()
         configureTapBar()
     }
     
     private func configureNavigationItem() {
-        self.navigationItem.searchController?.searchBar.tintColor = UIColor.white // 텍스트 컬러를 white로 설정
-        self.navigationItem.searchController?.searchBar.placeholder = "Search for a city or airport"
-        self.navigationItem.title = "Weather"
-        self.navigationItem.hidesSearchBarWhenScrolling = false // 스크롤시 searchBar 표시 여부
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    private func configureTitle() {
-        self.navigationItem.title = "city"
-        self.navigationItem.titleView?.tintColor = .white
+        let titleLabel = UILabel()
+        titleLabel.text = "My Location"
+        titleLabel.textColor = UIColor.white // 타이틀 텍스트 색상 설정
+        titleLabel.font = UIFont.systemFont(ofSize: 17) // 폰트 설정 (원하는 폰트로 변경 가능)
+        titleLabel.sizeToFit() // 레이블 크기를 내용에 맞게 조정
+        
+        let cityLabel = UILabel()
+        cityLabel.text = "City Name" // 원하는 도시 이름으로 설정
+        cityLabel.textColor = UIColor.white // 도시 이름 텍스트 색상 설정
+        cityLabel.font = UIFont.systemFont(ofSize: 14) // 폰트 설정
+        cityLabel.sizeToFit() // 레이블 크기를 내용에 맞게 조정
+        
+        // 타이틀 및 도시 이름을 담는 스택 뷰 생성
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, cityLabel])
+        stackView.axis = .vertical // 수직 스택 뷰
+        stackView.alignment = .center // 가운데 정렬
+        stackView.spacing = 4 // 타이틀과 도시 이름 사이의 간격 설정
+        
+        // 타이틀 뷰 설정
+        self.navigationItem.titleView = stackView
     }
     
     private func configureTapBar() {
@@ -41,7 +51,7 @@ final class SecondViewController: UIViewController {
         backButton.frame = CGRect(x: self.view.bounds.midX + 100, y: 20, width: 100, height: 40)
         backButton.setTitleColor(.white, for: .highlighted)
         backButton.setTitleColor(.gray, for: .disabled)
-            
+        
         // 커스텀 뷰에 뒤로가기 버튼 추가
         customBottomView.addSubview(backButton)
         
