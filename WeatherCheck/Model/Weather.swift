@@ -2,10 +2,8 @@
 //  Weather.swift
 //  WeatherCheck
 //
-//  Created by 박종화 on 10/17/23.
+//  Created by Jusbug on 10/17/23.
 //
-
-import Foundation
 
 // JSON 데이터를 파싱하기 위한 루트 데이터 모델
 struct WeatherData: Decodable {

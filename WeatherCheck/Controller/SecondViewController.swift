@@ -2,7 +2,7 @@
 //  SecondViewController.swift
 //  WeatherCheck
 //
-//  Created by 박종화 on 2023/10/10.
+//  Created by Jusbug on 2023/10/10.
 //
 
 import UIKit

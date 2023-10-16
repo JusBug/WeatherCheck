@@ -2,7 +2,7 @@
 //  TimeCollectionViewCell.swift
 //  WeatherCheck
 //
-//  Created by 박종화 on 10/12/23.
+//  Created by Jusbug on 10/12/23.
 //
 
 import UIKit

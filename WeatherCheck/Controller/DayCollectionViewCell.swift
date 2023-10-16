@@ -2,7 +2,7 @@
 //  DayCollectionViewCell.swift
 //  WeatherCheck
 //
-//  Created by 박종화 on 10/16/23.
+//  Created by Jusbug on 10/16/23.
 //
 
 import UIKit
