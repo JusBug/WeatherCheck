@@ -1,5 +1,5 @@
 //
-//  DayCollectionViewCell.swift
+//  moreInfoCollectionViewCell.swift
 //  WeatherCheck
 //
 //  Created by 박종화 on 10/16/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DayCollectionViewCell: UICollectionViewCell {
+class moreInfoCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

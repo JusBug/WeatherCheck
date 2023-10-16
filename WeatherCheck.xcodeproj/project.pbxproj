@@ -20,6 +20,8 @@
 		D02C9F3F2AD7F361006AF521 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02C9F3D2AD7F361006AF521 /* TimeCollectionViewCell.xib */; };
 		D0F7ACEA2ADD1FE5005DECA6 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F7ACE82ADD1FE5005DECA6 /* DayCollectionViewCell.swift */; };
 		D0F7ACEB2ADD1FE5005DECA6 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F7ACE92ADD1FE5005DECA6 /* DayCollectionViewCell.xib */; };
+		D0F7ACEE2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F7ACEC2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift */; };
+		D0F7ACEF2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F7ACED2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		D02C9F3D2AD7F361006AF521 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
 		D0F7ACE82ADD1FE5005DECA6 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0F7ACE92ADD1FE5005DECA6 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
+		D0F7ACEC2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moreInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0F7ACED2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = moreInfoCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 				D0235D212AD3F9BD004437B8 /* CollectionViewCell.xib */,
 				D02C9F3D2AD7F361006AF521 /* TimeCollectionViewCell.xib */,
 				D0F7ACE92ADD1FE5005DECA6 /* DayCollectionViewCell.xib */,
+				D0F7ACED2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				D0235D202AD3F9BD004437B8 /* CollectionViewCell.swift */,
 				D02C9F3C2AD7F361006AF521 /* TimeCollectionViewCell.swift */,
 				D0F7ACE82ADD1FE5005DECA6 /* DayCollectionViewCell.swift */,
+				D0F7ACEC2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 				D0235D142AD3EB4C004437B8 /* LaunchScreen.storyboard in Resources */,
 				D0235D112AD3EB4C004437B8 /* Assets.xcassets in Resources */,
 				D02C9F3F2AD7F361006AF521 /* TimeCollectionViewCell.xib in Resources */,
+				D0F7ACEF2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib in Resources */,
 				D0F7ACEB2ADD1FE5005DECA6 /* DayCollectionViewCell.xib in Resources */,
 				D0235D232AD3F9BD004437B8 /* CollectionViewCell.xib in Resources */,
 				D0235D0F2AD3EB4A004437B8 /* Main.storyboard in Resources */,
@@ -204,6 +211,7 @@
 			files = (
 				D0235D0C2AD3EB4A004437B8 /* MainViewController.swift in Sources */,
 				D02C9F3E2AD7F361006AF521 /* TimeCollectionViewCell.swift in Sources */,
+				D0F7ACEE2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift in Sources */,
 				D0235D082AD3EB4A004437B8 /* AppDelegate.swift in Sources */,
 				D0235D222AD3F9BD004437B8 /* CollectionViewCell.swift in Sources */,
 				D0F7ACEA2ADD1FE5005DECA6 /* DayCollectionViewCell.swift in Sources */,

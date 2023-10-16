@@ -10,6 +10,7 @@ import UIKit
 final class SecondViewController: UIViewController {
     @IBOutlet weak var todayCollectionView: UICollectionView!
     @IBOutlet weak var tenDaysCollectionView: UICollectionView!
+    @IBOutlet weak var moreInfoCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,6 @@ final class SecondViewController: UIViewController {
         ininDelegateAndDataSource()
         registerNib()
         configureLayoutForTime()
-        configureLayoutForDay()
     }
     
     private func configureNavigationItem() {
@@ -69,23 +69,20 @@ final class SecondViewController: UIViewController {
         todayCollectionView.dataSource = self
         tenDaysCollectionView.delegate = self
         tenDaysCollectionView.dataSource = self
+        moreInfoCollectionView.delegate = self
+        moreInfoCollectionView.dataSource = self
     }
     
     private func registerNib() {
         todayCollectionView.register(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeCell")
         tenDaysCollectionView.register(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "dayCell")
+        moreInfoCollectionView.register(UINib(nibName: "moreInfoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "moreCell")
     }
     
     private func configureLayoutForTime() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         todayCollectionView.collectionViewLayout = layout
-    }
-    
-    private func configureLayoutForDay() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        tenDaysCollectionView.collectionViewLayout = layout
     }
     
     @objc func backButtonTapped() {
@@ -101,6 +98,8 @@ extension SecondViewController: UICollectionViewDataSource {
             return 10
         case tenDaysCollectionView:
             return 10
+        case moreInfoCollectionView:
+            return 4
         default:
             break
         }
@@ -112,11 +111,15 @@ extension SecondViewController: UICollectionViewDataSource {
         
         switch collectionView {
         case todayCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as? DayCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as? TimeCollectionViewCell else { return UICollectionViewCell() }
             
             return cell
         case tenDaysCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as? TimeCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as? DayCollectionViewCell else { return UICollectionViewCell() }
+            
+            return cell
+        case moreInfoCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moreCell", for: indexPath) as? moreInfoCollectionViewCell else { return UICollectionViewCell() }
             
             return cell
         default:
@@ -133,9 +136,10 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
         switch collectionView {
         case todayCollectionView:
             return CGSize(width: 60, height: 100)
-
         case tenDaysCollectionView:
-            return CGSize(width: self.view.bounds.width - 50, height: 30)
+            return CGSize(width: self.view.bounds.width - 50, height: 40)
+        case moreInfoCollectionView:
+            return CGSize(width: 100, height: 100)
         default:
             break
         }
@@ -147,8 +151,10 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
         
         switch collectionView {
         case todayCollectionView:
-            return 0
+            return 1
         case tenDaysCollectionView:
+            return 10
+        case moreInfoCollectionView:
             return 10
         default:
             break
