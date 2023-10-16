@@ -18,6 +18,6 @@ class TimeCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureLayer() {
-        layer.cornerRadius = 10
+        layer.cornerRadius = 20
     }
 }

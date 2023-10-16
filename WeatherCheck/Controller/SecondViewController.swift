@@ -8,7 +8,8 @@
 import UIKit
 
 final class SecondViewController: UIViewController {
-    @IBOutlet weak var inforCollectionView: UICollectionView!
+    @IBOutlet weak var todayCollectionView: UICollectionView!
+    @IBOutlet weak var tenDaysCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +17,8 @@ final class SecondViewController: UIViewController {
         configureTapBar()
         ininDelegateAndDataSource()
         registerNib()
-        configureLayout()
+        configureLayoutForTime()
+        configureLayoutForDay()
     }
     
     private func configureNavigationItem() {
@@ -63,18 +65,27 @@ final class SecondViewController: UIViewController {
     }
     
     private func ininDelegateAndDataSource() {
-        inforCollectionView.delegate = self
-        inforCollectionView.dataSource = self
+        todayCollectionView.delegate = self
+        todayCollectionView.dataSource = self
+        tenDaysCollectionView.delegate = self
+        tenDaysCollectionView.dataSource = self
     }
     
     private func registerNib() {
-        inforCollectionView.register(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeCell")
+        todayCollectionView.register(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeCell")
+        tenDaysCollectionView.register(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "dayCell")
     }
     
-    private func configureLayout() {
+    private func configureLayoutForTime() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        inforCollectionView.collectionViewLayout = layout
+        todayCollectionView.collectionViewLayout = layout
+    }
+    
+    private func configureLayoutForDay() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        tenDaysCollectionView.collectionViewLayout = layout
     }
     
     @objc func backButtonTapped() {
@@ -85,23 +96,64 @@ final class SecondViewController: UIViewController {
 
 extension SecondViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        switch collectionView {
+        case todayCollectionView:
+            return 10
+        case tenDaysCollectionView:
+            return 10
+        default:
+            break
+        }
+        
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as? TimeCollectionViewCell else { return UICollectionViewCell() }
         
-        return cell
+        switch collectionView {
+        case todayCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as? DayCollectionViewCell else { return UICollectionViewCell() }
+            
+            return cell
+        case tenDaysCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as? TimeCollectionViewCell else { return UICollectionViewCell() }
+            
+            return cell
+        default:
+            break
+        }
+        
+        return UICollectionViewCell()
     }
 }
 
 extension SecondViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 60, height: 100)
+        
+        switch collectionView {
+        case todayCollectionView:
+            return CGSize(width: 60, height: 100)
+
+        case tenDaysCollectionView:
+            return CGSize(width: self.view.bounds.width - 50, height: 30)
+        default:
+            break
+        }
+        
+        return CGSize()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        switch collectionView {
+        case todayCollectionView:
+            return 0
+        case tenDaysCollectionView:
+            return 10
+        default:
+            break
+        }
+        
         return 0
     }
 }
-

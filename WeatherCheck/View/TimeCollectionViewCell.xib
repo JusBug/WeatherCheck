@@ -10,14 +10,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TimeCollectionViewCell" customModule="WeatherCheck" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="timeCell" reuseIdentifier="timeCell" id="gTV-IL-0wX" customClass="TimeCollectionViewCell" customModule="WeatherCheck" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="112" height="138"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="112" height="138"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="timeCell" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="juG-Of-gh5" customClass="TimeCollectionVIewCell">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="juG-Of-gh5" customClass="TimeCollectionVIewCell">
                         <rect key="frame" x="10" y="11" width="92" height="116"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IKg-96-nRe">
