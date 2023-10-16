@@ -24,32 +24,28 @@ final class SecondViewController: UIViewController {
     private func configureNavigationItem() {
         let titleLabel = UILabel()
         titleLabel.text = "My Location"
-        titleLabel.textColor = UIColor.white // 타이틀 텍스트 색상 설정
-        titleLabel.font = UIFont.systemFont(ofSize: 17) // 폰트 설정 (원하는 폰트로 변경 가능)
-        titleLabel.sizeToFit() // 레이블 크기를 내용에 맞게 조정
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont.systemFont(ofSize: 17)
+        titleLabel.sizeToFit()
         
         let cityLabel = UILabel()
-        cityLabel.text = "City Name" // 원하는 도시 이름으로 설정
-        cityLabel.textColor = UIColor.white // 도시 이름 텍스트 색상 설정
-        cityLabel.font = UIFont.systemFont(ofSize: 14) // 폰트 설정
-        cityLabel.sizeToFit() // 레이블 크기를 내용에 맞게 조정
+        cityLabel.text = "City Name"
+        cityLabel.textColor = UIColor.white
+        cityLabel.font = UIFont.systemFont(ofSize: 14)
+        cityLabel.sizeToFit()
         
-        // 타이틀 및 도시 이름을 담는 스택 뷰 생성
         let stackView = UIStackView(arrangedSubviews: [titleLabel, cityLabel])
-        stackView.axis = .vertical // 수직 스택 뷰
-        stackView.alignment = .center // 가운데 정렬
-        stackView.spacing = 4 // 타이틀과 도시 이름 사이의 간격 설정
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 4
         
-        // 타이틀 뷰 설정
         self.navigationItem.titleView = stackView
     }
     
     private func configureTapBar() {
-        // 커스텀 하단 뷰 생성
         let customBottomView = UIView(frame: CGRect(x: 0, y: view.frame.size.height - 100, width: view.frame.size.width, height: 100))
         customBottomView.backgroundColor = .darkGray
         
-        // 뒤로가기 버튼 생성
         let backButton = UIButton(type: .custom)
         backButton.setImage(UIImage(systemName: "list.bullet"), for: .normal)
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
@@ -57,10 +53,8 @@ final class SecondViewController: UIViewController {
         backButton.setTitleColor(.white, for: .highlighted)
         backButton.setTitleColor(.gray, for: .disabled)
         
-        // 커스텀 뷰에 뒤로가기 버튼 추가
         customBottomView.addSubview(backButton)
         
-        // 화면에 커스텀 하단 뷰 추가
         view.addSubview(customBottomView)
     }
     
@@ -108,7 +102,6 @@ extension SecondViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         switch collectionView {
         case todayCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as? TimeCollectionViewCell else { return UICollectionViewCell() }
@@ -132,14 +125,13 @@ extension SecondViewController: UICollectionViewDataSource {
 
 extension SecondViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         switch collectionView {
         case todayCollectionView:
             return CGSize(width: 60, height: 100)
         case tenDaysCollectionView:
-            return CGSize(width: self.view.bounds.width - 50, height: 40)
+            return CGSize(width: self.view.bounds.width - 50, height: 50)
         case moreInfoCollectionView:
-            return CGSize(width: 100, height: 100)
+            return CGSize(width: self.view.bounds.width / 2.4, height: 100)
         default:
             break
         }
@@ -148,7 +140,6 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
         switch collectionView {
         case todayCollectionView:
             return 1
@@ -161,5 +152,20 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
         }
         
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        switch collectionView {
+        case todayCollectionView:
+            return UIEdgeInsets(top: 10, left: 10, bottom: 50, right: 10)
+        case tenDaysCollectionView:
+            return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        case moreInfoCollectionView:
+            return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        default:
+            break
+        }
+        
+        return UIEdgeInsets()
     }
 }
