@@ -9,6 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     @IBOutlet weak var cityCollectionView: UICollectionView!
+    var currentWeather: CurrentWeather?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +17,7 @@ class MainViewController: UIViewController {
         ininDelegateAndDataSource()
         registerNib()
         configureLayout()
+        callAPIManager()
     }
     
     private func configureNavigationItem() {
@@ -59,6 +61,27 @@ class MainViewController: UIViewController {
         actionSheet.addAction(cancel)
         
         present(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func callAPIManager() {
+        APIManager().fetchData { result in
+            let jsonDecoder = JSONDecoder()
+            switch result {
+            case .success(let data):
+                if let decodedData: CurrentWeather = jsonDecoder.decodeJSON(data: data) {
+                    self.currentWeather = decodedData
+                    print(decodedData)
+                    DispatchQueue.main.async {
+                        //self.cityCollectionView.reloadData()
+                        //self.hideLoadingView()
+                    }
+                } else {
+                    print("Decoding Error")
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 
