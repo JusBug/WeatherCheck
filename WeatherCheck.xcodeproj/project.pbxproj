@@ -16,6 +16,8 @@
 		D0235D222AD3F9BD004437B8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0235D202AD3F9BD004437B8 /* CollectionViewCell.swift */; };
 		D0235D232AD3F9BD004437B8 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0235D212AD3F9BD004437B8 /* CollectionViewCell.xib */; };
 		D0235D252AD46BF5004437B8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0235D242AD46BF5004437B8 /* SecondViewController.swift */; };
+		D02C9F3E2AD7F361006AF521 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02C9F3C2AD7F361006AF521 /* TimeCollectionViewCell.swift */; };
+		D02C9F3F2AD7F361006AF521 /* TimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02C9F3D2AD7F361006AF521 /* TimeCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		D0235D202AD3F9BD004437B8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		D0235D212AD3F9BD004437B8 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		D0235D242AD46BF5004437B8 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		D02C9F3C2AD7F361006AF521 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D02C9F3D2AD7F361006AF521 /* TimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 				D0235D0D2AD3EB4A004437B8 /* Main.storyboard */,
 				D0235D122AD3EB4C004437B8 /* LaunchScreen.storyboard */,
 				D0235D212AD3F9BD004437B8 /* CollectionViewCell.xib */,
+				D02C9F3D2AD7F361006AF521 /* TimeCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 				D0235D0B2AD3EB4A004437B8 /* MainViewController.swift */,
 				D0235D242AD46BF5004437B8 /* SecondViewController.swift */,
 				D0235D202AD3F9BD004437B8 /* CollectionViewCell.swift */,
+				D02C9F3C2AD7F361006AF521 /* TimeCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,6 +182,7 @@
 			files = (
 				D0235D142AD3EB4C004437B8 /* LaunchScreen.storyboard in Resources */,
 				D0235D112AD3EB4C004437B8 /* Assets.xcassets in Resources */,
+				D02C9F3F2AD7F361006AF521 /* TimeCollectionViewCell.xib in Resources */,
 				D0235D232AD3F9BD004437B8 /* CollectionViewCell.xib in Resources */,
 				D0235D0F2AD3EB4A004437B8 /* Main.storyboard in Resources */,
 			);
@@ -189,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0235D0C2AD3EB4A004437B8 /* MainViewController.swift in Sources */,
+				D02C9F3E2AD7F361006AF521 /* TimeCollectionViewCell.swift in Sources */,
 				D0235D082AD3EB4A004437B8 /* AppDelegate.swift in Sources */,
 				D0235D222AD3F9BD004437B8 /* CollectionViewCell.swift in Sources */,
 				D0235D252AD46BF5004437B8 /* SecondViewController.swift in Sources */,

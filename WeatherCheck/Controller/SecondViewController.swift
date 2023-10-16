@@ -14,6 +14,9 @@ final class SecondViewController: UIViewController {
         super.viewDidLoad()
         configureNavigationItem()
         configureTapBar()
+        ininDelegateAndDataSource()
+        registerNib()
+        configureLayout()
     }
     
     private func configureNavigationItem() {
@@ -59,8 +62,46 @@ final class SecondViewController: UIViewController {
         view.addSubview(customBottomView)
     }
     
+    private func ininDelegateAndDataSource() {
+        inforCollectionView.delegate = self
+        inforCollectionView.dataSource = self
+    }
+    
+    private func registerNib() {
+        inforCollectionView.register(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeCell")
+    }
+    
+    private func configureLayout() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        inforCollectionView.collectionViewLayout = layout
+    }
+    
     @objc func backButtonTapped() {
         // 뒤로 가기 버튼 동작을 정의
         self.dismiss(animated: true)
     }
 }
+
+extension SecondViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as? TimeCollectionViewCell else { return UICollectionViewCell() }
+        
+        return cell
+    }
+}
+
+extension SecondViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 60, height: 100)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}
+
