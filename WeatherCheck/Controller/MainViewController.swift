@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationItem()
-        ininDelegateAndDataSource()
+        initDelegateAndDataSource()
         registerNib()
         configureLayout()
         callAPIManager()
@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = true
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchResultsUpdater = self
         self.navigationItem.searchController = searchController
         self.navigationItem.searchController?.searchBar.tintColor = UIColor.white
         self.navigationItem.searchController?.searchBar.placeholder = "Search for a city or airport"
@@ -32,7 +33,7 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-    private func ininDelegateAndDataSource() {
+    private func initDelegateAndDataSource() {
         cityCollectionView.delegate = self
         cityCollectionView.dataSource = self
     }
@@ -126,4 +127,12 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
+extension MainViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        
+        print(text)
+    }
+}
