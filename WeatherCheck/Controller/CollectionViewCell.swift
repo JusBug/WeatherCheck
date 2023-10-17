@@ -32,10 +32,23 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     func configureLables(with weather: WeatherData) {
-        locationLabel.text = "\(weather.timezone)"
-        cityLabel.text = "\(weather.timezone)"
+        if let (location, city) = splitTimezone(timezone: weather.timezone) {
+            locationLabel.text = "\(location)"
+            cityLabel.text = "\(city)"
+        }
         airStatusLabel.text = "\(weather.current.visibility)"
         temperatureLabel.text = "\(weather.current.temp)"
         minMaxLabel.text = "\(weather.timezone)"
+    }
+    
+    private func splitTimezone(timezone: String) -> (String, String)? {
+        let lines = timezone.components(separatedBy: "/")
+        if lines.count == 2{
+            let location = lines[0]
+            let city = lines[1]
+            return (location, city)
+        }
+        
+        return nil
     }
 }
