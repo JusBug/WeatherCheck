@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     @IBOutlet weak var cityCollectionView: UICollectionView!
-    var currentWeather: WeatherData?
+    var weather: WeatherData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +22,13 @@ class MainViewController: UIViewController {
     
     private func configureNavigationItem() {
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.obscuresBackgroundDuringPresentation = true // searchBar 활성화시 백그라운드 어둡게
-        searchController.hidesNavigationBarDuringPresentation = false // searchBar 활성화시 title 표시 여부
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.hidesNavigationBarDuringPresentation = false
         self.navigationItem.searchController = searchController
-        self.navigationItem.searchController?.searchBar.tintColor = UIColor.white // 텍스트 컬러를 white로 설정
+        self.navigationItem.searchController?.searchBar.tintColor = UIColor.white
         self.navigationItem.searchController?.searchBar.placeholder = "Search for a city or airport"
         self.navigationItem.title = "Weather"
-        self.navigationItem.hidesSearchBarWhenScrolling = false // 스크롤시 searchBar 표시 여부
+        self.navigationItem.hidesSearchBarWhenScrolling = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
@@ -70,15 +70,12 @@ class MainViewController: UIViewController {
             case .success(let data):
                 do {
                     let decodedData = try jsonDecoder.decode(WeatherData.self, from: data)
-                    self.currentWeather = decodedData
+                    self.weather = decodedData
                     print(decodedData)
                     DispatchQueue.main.async {
-                        // 데이터가 성공적으로 디코딩되었을 때 수행할 작업을 여기에 추가하세요.
-                        // 예: self.cityCollectionView.reloadData()
-                        //     self.hideLoadingView()
+                        self.cityCollectionView.reloadData()
                     }
                 } catch {
-                    // JSON 디코딩 중 에러 발생
                     print("Decoding Error: \(error)")
                 }
             case .failure(let error):
@@ -91,11 +88,16 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return weather?.timezone.count ?? 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
+        
+        if let weather = weather {
+            let weatherInfo = weather
+            cell.configureLables(with: weatherInfo)
+        }
         
         return cell
     }
@@ -108,10 +110,7 @@ extension MainViewController: UICollectionViewDelegate {
         secondVC.modalTransitionStyle = .coverVertical
         secondVC.modalPresentationStyle = .fullScreen
         
-        //self.present(secondVC, animated: true, completion: nil)
-        self.navigationController?.pushViewController(secondVC, animated: true) // 뒤로기가 버튼 자동 생성
-        //self.navigationController?.popToViewController(secondVC, animated: true)
-        
+        self.navigationController?.pushViewController(secondVC, animated: true)
     }
 }
 
