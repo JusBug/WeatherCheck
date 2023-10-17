@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     @IBOutlet weak var cityCollectionView: UICollectionView!
-    var currentWeather: CurrentWeather?
+    var currentWeather: WeatherData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,21 +68,25 @@ class MainViewController: UIViewController {
             let jsonDecoder = JSONDecoder()
             switch result {
             case .success(let data):
-                if let decodedData: CurrentWeather = jsonDecoder.decodeJSON(data: data) {
+                do {
+                    let decodedData = try jsonDecoder.decode(WeatherData.self, from: data)
                     self.currentWeather = decodedData
                     print(decodedData)
                     DispatchQueue.main.async {
-                        //self.cityCollectionView.reloadData()
-                        //self.hideLoadingView()
+                        // 데이터가 성공적으로 디코딩되었을 때 수행할 작업을 여기에 추가하세요.
+                        // 예: self.cityCollectionView.reloadData()
+                        //     self.hideLoadingView()
                     }
-                } else {
-                    print("Decoding Error")
+                } catch {
+                    // JSON 디코딩 중 에러 발생
+                    print("Decoding Error: \(error)")
                 }
             case .failure(let error):
-                print(error)
+                print("Failure: \(error)")
             }
         }
     }
+
 }
 
 extension MainViewController: UICollectionViewDataSource {

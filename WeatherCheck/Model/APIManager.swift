@@ -44,6 +44,7 @@ struct APIManager {
                     return
                 }
                 
+                print(safeData)
                 completion(.success(safeData))
             }
         }
