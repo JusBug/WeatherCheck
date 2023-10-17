@@ -31,14 +31,15 @@ class CollectionViewCell: UICollectionViewCell {
         minMaxLabel.font = .preferredFont(forTextStyle: .caption1)
     }
     
-    func configureLables(with weather: WeatherData) {
+    func configureLables(with weather: WeatherData, more daily: DailyWeather) {
         if let (location, city) = splitTimezone(timezone: weather.timezone) {
             locationLabel.text = "\(location)"
             cityLabel.text = "\(city)"
         }
+        
         airStatusLabel.text = "\(weather.current.visibility)"
         temperatureLabel.text = "\(weather.current.temp)"
-        minMaxLabel.text = "\(weather.timezone)"
+        minMaxLabel.text = "\(daily.temp.min) - \(daily.temp.max)"
     }
     
     private func splitTimezone(timezone: String) -> (String, String)? {

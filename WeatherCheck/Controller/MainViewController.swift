@@ -96,7 +96,8 @@ extension MainViewController: UICollectionViewDataSource {
         
         if let weather = weather {
             let weatherInfo = weather
-            cell.configureLables(with: weatherInfo)
+            let daily = weather.daily[indexPath.item]
+            cell.configureLables(with: weatherInfo, more: daily)
             cell.configureFont()
         }
         
