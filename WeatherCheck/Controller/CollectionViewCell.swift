@@ -23,6 +23,14 @@ class CollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 20
     }
     
+    func configureFont() {
+        locationLabel.font = .preferredFont(forTextStyle: .title1)
+        cityLabel.font = .preferredFont(forTextStyle: .body)
+        airStatusLabel.font = .preferredFont(forTextStyle: .caption1)
+        temperatureLabel.font = .preferredFont(forTextStyle: .title1)
+        minMaxLabel.font = .preferredFont(forTextStyle: .caption1)
+    }
+    
     func configureLables(with weather: WeatherData) {
         locationLabel.text = "\(weather.timezone)"
         cityLabel.text = "\(weather.timezone)"
