@@ -18,7 +18,7 @@ final class SecondViewController: UIViewController {
         configureTapBar()
         ininDelegateAndDataSource()
         registerNib()
-        configureScrollbar()
+        configureCollectionView()
 //        setBackgroundImageBasedOnTime()
         let backgroundImage = UIImageView(image: UIImage(named: "Sunny"))
         backgroundImage.contentMode = .scaleAspectFill
@@ -79,7 +79,7 @@ final class SecondViewController: UIViewController {
         moreInfoCollectionView.register(UINib(nibName: "moreInfoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "moreCell")
     }
     
-    private func configureScrollbar() {
+    private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         todayCollectionView.collectionViewLayout = layout
@@ -88,7 +88,7 @@ final class SecondViewController: UIViewController {
         moreInfoCollectionView.showsVerticalScrollIndicator = false
         todayCollectionView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
         tenDaysCollectionView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
-        moreInfoCollectionView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
+        moreInfoCollectionView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.0)
         todayCollectionView.layer.cornerRadius = 10
         tenDaysCollectionView.layer.cornerRadius = 10
         moreInfoCollectionView.layer.cornerRadius = 10
@@ -156,8 +156,6 @@ extension SecondViewController: UICollectionViewDataSource {
         case moreInfoCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moreCell", for: indexPath) as? moreInfoCollectionViewCell else { return UICollectionViewCell() }
             
-            cell.backgroundColor = .clear
-            
             return cell
         default:
             break
@@ -175,7 +173,7 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
         case tenDaysCollectionView:
             return CGSize(width: self.view.bounds.width - 50, height: 50)
         case moreInfoCollectionView:
-            return CGSize(width: self.view.bounds.width / 2.4, height: 100)
+            return CGSize(width: self.view.bounds.width / 2.3, height: 100)
         default:
             break
         }
@@ -205,7 +203,7 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
         case tenDaysCollectionView:
             return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         case moreInfoCollectionView:
-            return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         default:
             break
         }

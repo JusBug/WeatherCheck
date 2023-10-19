@@ -18,6 +18,17 @@ class DayCollectionViewCell: UICollectionViewCell {
         configureFont()
     }
     
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        let context = UIGraphicsGetCurrentContext()
+        context?.setStrokeColor(UIColor.white.cgColor)
+        context?.setLineWidth(1)
+        context?.move(to: CGPoint(x: 0, y: rect.size.height))
+        context?.addLine(to: CGPoint(x: rect.size.width, y: rect.size.height))
+        context?.strokePath()
+    }
+    
     private func configureLayer() {
         layer.cornerRadius = 10
     }

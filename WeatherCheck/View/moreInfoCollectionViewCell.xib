@@ -40,7 +40,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" red="0.69629257919999998" green="0.49006664750000001" blue="0.43205159900000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" white="1" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="154" height="147"/>
             <point key="canvasLocation" x="163.35877862595419" y="22.887323943661972"/>
         </collectionViewCell>
