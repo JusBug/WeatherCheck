@@ -81,6 +81,7 @@ final class SecondViewController: UIViewController {
     private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 10
         todayCollectionView.collectionViewLayout = layout
         todayCollectionView.showsHorizontalScrollIndicator = false
         tenDaysCollectionView.showsVerticalScrollIndicator = false
@@ -173,8 +174,17 @@ extension SecondViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        // 헤더 뷰의 크기를 설정합니다.
-        return CGSize(width: collectionView.frame.width, height: 20) // 원하는 크기로 설정
+        switch collectionView {
+        case todayCollectionView:
+            return CGSize(width: 100, height: 10)
+        case tenDaysCollectionView:
+            return CGSize(width: self.view.bounds.width - 50, height: 25)
+        case moreInfoCollectionView:
+            return CGSize(width: self.view.bounds.width / 2.3, height: 25)
+        default:
+            break
+        }
+        return CGSize()
     }
 }
 
@@ -184,7 +194,7 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
         case todayCollectionView:
             return CGSize(width: 60, height: 100)
         case tenDaysCollectionView:
-            return CGSize(width: self.view.bounds.width - 50, height: 50)
+            return CGSize(width: self.view.bounds.width - 50, height: 40)
         case moreInfoCollectionView:
             return CGSize(width: self.view.bounds.width / 2.3, height: 100)
         default:

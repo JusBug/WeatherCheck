@@ -14,5 +14,4 @@ class CollectionReusableView: UICollectionReusableView {
         super.awakeFromNib()
         // Initialization code
     }
-    
 }
