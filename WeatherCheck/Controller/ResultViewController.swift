@@ -2,7 +2,7 @@
 //  ResultViewController.swift
 //  WeatherCheck
 //
-//  Created by 박종화 on 10/18/23.
+//  Created by Jusbug on 10/18/23.
 //
 
 import UIKit
@@ -26,7 +26,7 @@ class ResultViewController: UIViewController {
     }
     
     private func registerNib() {
-        tableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "resultCell")
     }
 }
 

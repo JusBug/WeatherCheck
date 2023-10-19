@@ -145,12 +145,8 @@
 			children = (
 				D0235D0B2AD3EB4A004437B8 /* MainViewController.swift */,
 				D0235D242AD46BF5004437B8 /* SecondViewController.swift */,
-				D0235D202AD3F9BD004437B8 /* CollectionViewCell.swift */,
-				D02C9F3C2AD7F361006AF521 /* TimeCollectionViewCell.swift */,
-				D0F7ACE82ADD1FE5005DECA6 /* DayCollectionViewCell.swift */,
-				D0F7ACEC2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift */,
 				D03BCC4C2ADF129900AF9B4F /* ResultViewController.swift */,
-				D03BCC4E2ADF12B400AF9B4F /* TableViewCell.swift */,
+				D05EC9542AE1540900F096E8 /* Cell */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -169,6 +165,18 @@
 				D03BCC3A2ADDC7E400AF9B4F /* JSONDecoder+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		D05EC9542AE1540900F096E8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D0235D202AD3F9BD004437B8 /* CollectionViewCell.swift */,
+				D02C9F3C2AD7F361006AF521 /* TimeCollectionViewCell.swift */,
+				D0F7ACE82ADD1FE5005DECA6 /* DayCollectionViewCell.swift */,
+				D0F7ACEC2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift */,
+				D03BCC4E2ADF12B400AF9B4F /* TableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
