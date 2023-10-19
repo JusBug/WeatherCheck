@@ -19,12 +19,7 @@ final class SecondViewController: UIViewController {
         ininDelegateAndDataSource()
         registerNib()
         configureCollectionView()
-//        setBackgroundImageBasedOnTime()
-        let backgroundImage = UIImageView(image: UIImage(named: "Sunny"))
-        backgroundImage.contentMode = .scaleAspectFill
-        backgroundImage.frame = view.bounds
-        view.insertSubview(backgroundImage, at: 0)
-        
+        setBackgroundImageOnTime()
     }
     
     private func configureNavigationItem() {
@@ -98,25 +93,32 @@ final class SecondViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    private func setBackgroundImageBasedOnTime() {
+    private func setBackgroundImageOnTime() {
         let dateManager = DateManager()
         let currentHour = Calendar.current.component(.hour, from: dateManager.current)
         
-        var backgroundImageName = "Sunny" // 기본 이미지
+        var backgroundImageName = "Night"
         
         switch currentHour {
         case 0..<6:
-            backgroundImageName = "Sunny"
-        case 6..<12:
+            backgroundImageName = "Night"
+        case 6..<8:
+            backgroundImageName = "Night"
+        case 8..<12:
             backgroundImageName = "Sunny"
         case 12..<18:
             backgroundImageName = "Sunny"
+        case 18..<20:
+            backgroundImageName = "Night"
+        case 20..<0:
+            backgroundImageName = "Night"
         default:
             backgroundImageName = "Sunny"
         }
         
         let backgroundImageView = UIImageView(image: UIImage(named: backgroundImageName))
         backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.frame = view.bounds
         self.view.insertSubview(backgroundImageView, at: 0)
     }
 }
