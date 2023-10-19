@@ -112,6 +112,8 @@ extension SecondViewController: UICollectionViewDataSource {
         case tenDaysCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as? DayCollectionViewCell else { return UICollectionViewCell() }
             
+            cell.configureCell(indexPath: indexPath)
+            
             return cell
         case moreInfoCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moreCell", for: indexPath) as? moreInfoCollectionViewCell else { return UICollectionViewCell() }
