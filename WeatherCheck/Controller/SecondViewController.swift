@@ -18,7 +18,7 @@ final class SecondViewController: UIViewController {
         configureTapBar()
         ininDelegateAndDataSource()
         registerNib()
-        configureLayoutForTime()
+        configureScrollbar()
     }
     
     private func configureNavigationItem() {
@@ -73,14 +73,16 @@ final class SecondViewController: UIViewController {
         moreInfoCollectionView.register(UINib(nibName: "moreInfoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "moreCell")
     }
     
-    private func configureLayoutForTime() {
+    private func configureScrollbar() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         todayCollectionView.collectionViewLayout = layout
+        todayCollectionView.showsHorizontalScrollIndicator = false
+        tenDaysCollectionView.showsVerticalScrollIndicator = false
+        moreInfoCollectionView.showsVerticalScrollIndicator = false
     }
     
     @objc func backButtonTapped() {
-        // 뒤로 가기 버튼 동작을 정의
         self.dismiss(animated: true)
     }
 }

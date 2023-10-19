@@ -8,7 +8,5 @@
 import Foundation
 
 struct DateManager {
-    let current = Calendar.current.component(.hour, from: Date())
-    
-
+    let current = Date()
 }
