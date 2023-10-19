@@ -32,6 +32,9 @@
 		D0F7ACEF2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F7ACED2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib */; };
 		D0FCDACC2AE1D9F1003451A8 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FCDACA2AE1D9F1003451A8 /* CollectionReusableView.swift */; };
 		D0FCDACD2AE1D9F1003451A8 /* CollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FCDACB2AE1D9F1003451A8 /* CollectionReusableView.xib */; };
+		D0FCDACF2AE1F4A7003451A8 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FCDACE2AE1F4A7003451A8 /* URLManager.swift */; };
+		D0FCDAD12AE1F621003451A8 /* APIKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0FCDAD02AE1F621003451A8 /* APIKey.plist */; };
+		D0FCDAD32AE1F717003451A8 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FCDAD22AE1F717003451A8 /* Bundle+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		D0F7ACED2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = moreInfoCollectionViewCell.xib; sourceTree = "<group>"; };
 		D0FCDACA2AE1D9F1003451A8 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		D0FCDACB2AE1D9F1003451A8 /* CollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionReusableView.xib; sourceTree = "<group>"; };
+		D0FCDACE2AE1F4A7003451A8 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		D0FCDAD02AE1F621003451A8 /* APIKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKey.plist; sourceTree = "<group>"; };
+		D0FCDAD22AE1F717003451A8 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 			children = (
 				D0235D102AD3EB4C004437B8 /* Assets.xcassets */,
 				D0235D152AD3EB4C004437B8 /* Info.plist */,
+				D0FCDAD02AE1F621003451A8 /* APIKey.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -142,6 +149,7 @@
 			children = (
 				D03BCC322ADDBC7B00AF9B4F /* Weather.swift */,
 				D03BCC342ADDBED900AF9B4F /* APIManager.swift */,
+				D0FCDACE2AE1F4A7003451A8 /* URLManager.swift */,
 				D059B3152AE1AF6C00F4E3EE /* DateManager.swift */,
 				D03BCC4A2ADF118400AF9B4F /* City.swift */,
 			);
@@ -171,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				D03BCC3A2ADDC7E400AF9B4F /* JSONDecoder+.swift */,
+				D0FCDAD22AE1F717003451A8 /* Bundle+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -251,6 +260,7 @@
 				D02C9F3F2AD7F361006AF521 /* TimeCollectionViewCell.xib in Resources */,
 				D0F7ACEF2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib in Resources */,
 				D0F7ACEB2ADD1FE5005DECA6 /* DayCollectionViewCell.xib in Resources */,
+				D0FCDAD12AE1F621003451A8 /* APIKey.plist in Resources */,
 				D0FCDACD2AE1D9F1003451A8 /* CollectionReusableView.xib in Resources */,
 				D0235D232AD3F9BD004437B8 /* CollectionViewCell.xib in Resources */,
 				D0235D0F2AD3EB4A004437B8 /* Main.storyboard in Resources */,
@@ -267,6 +277,7 @@
 				D0235D0C2AD3EB4A004437B8 /* MainViewController.swift in Sources */,
 				D02C9F3E2AD7F361006AF521 /* TimeCollectionViewCell.swift in Sources */,
 				D03BCC352ADDBED900AF9B4F /* APIManager.swift in Sources */,
+				D0FCDAD32AE1F717003451A8 /* Bundle+.swift in Sources */,
 				D0F7ACEE2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift in Sources */,
 				D0235D082AD3EB4A004437B8 /* AppDelegate.swift in Sources */,
 				D059B3162AE1AF6C00F4E3EE /* DateManager.swift in Sources */,
@@ -275,6 +286,7 @@
 				D0F7ACEA2ADD1FE5005DECA6 /* DayCollectionViewCell.swift in Sources */,
 				D03BCC3B2ADDC7E400AF9B4F /* JSONDecoder+.swift in Sources */,
 				D03BCC4D2ADF129900AF9B4F /* ResultViewController.swift in Sources */,
+				D0FCDACF2AE1F4A7003451A8 /* URLManager.swift in Sources */,
 				D0235D252AD46BF5004437B8 /* SecondViewController.swift in Sources */,
 				D0235D0A2AD3EB4A004437B8 /* SceneDelegate.swift in Sources */,
 				D0FCDACC2AE1D9F1003451A8 /* CollectionReusableView.swift in Sources */,
