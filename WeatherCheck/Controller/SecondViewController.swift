@@ -19,6 +19,12 @@ final class SecondViewController: UIViewController {
         ininDelegateAndDataSource()
         registerNib()
         configureScrollbar()
+//        setBackgroundImageBasedOnTime()
+        let backgroundImage = UIImageView(image: UIImage(named: "Sunny"))
+        backgroundImage.contentMode = .scaleAspectFill
+        backgroundImage.frame = view.bounds
+        view.insertSubview(backgroundImage, at: 0)
+        
     }
     
     private func configureNavigationItem() {
@@ -80,10 +86,35 @@ final class SecondViewController: UIViewController {
         todayCollectionView.showsHorizontalScrollIndicator = false
         tenDaysCollectionView.showsVerticalScrollIndicator = false
         moreInfoCollectionView.showsVerticalScrollIndicator = false
+        todayCollectionView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
+        tenDaysCollectionView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
+        moreInfoCollectionView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
     }
     
     @objc func backButtonTapped() {
         self.dismiss(animated: true)
+    }
+    
+    private func setBackgroundImageBasedOnTime() {
+        let dateManager = DateManager()
+        let currentHour = Calendar.current.component(.hour, from: dateManager.current)
+        
+        var backgroundImageName = "Sunny" // 기본 이미지
+        
+        switch currentHour {
+        case 0..<6:
+            backgroundImageName = "Sunny"
+        case 6..<12:
+            backgroundImageName = "Sunny"
+        case 12..<18:
+            backgroundImageName = "Sunny"
+        default:
+            backgroundImageName = "Sunny"
+        }
+        
+        let backgroundImageView = UIImageView(image: UIImage(named: backgroundImageName))
+        backgroundImageView.contentMode = .scaleAspectFill
+        self.view.insertSubview(backgroundImageView, at: 0)
     }
 }
 
@@ -109,16 +140,20 @@ extension SecondViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as? TimeCollectionViewCell else { return UICollectionViewCell() }
             
             cell.splitTimeLine(indexPath: indexPath)
+            cell.backgroundColor = .clear
             
             return cell
         case tenDaysCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as? DayCollectionViewCell else { return UICollectionViewCell() }
             
             cell.configureCell(indexPath: indexPath)
+            cell.backgroundColor = .clear
             
             return cell
         case moreInfoCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moreCell", for: indexPath) as? moreInfoCollectionViewCell else { return UICollectionViewCell() }
+            
+            cell.backgroundColor = .clear
             
             return cell
         default:
