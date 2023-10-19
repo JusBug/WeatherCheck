@@ -1,13 +1,13 @@
 //
-//  TableViewCell.swift
+//  ResultTableViewCell.swift
 //  WeatherCheck
 //
-//  Created by 박종화 on 10/18/23.
+//  Created by 박종화 on 10/19/23.
 //
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class ResultTableViewCell: UITableViewCell {
     @IBOutlet weak var cityLabel: UILabel!
     
     override func awakeFromNib() {

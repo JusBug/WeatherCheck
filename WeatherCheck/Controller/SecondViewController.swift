@@ -89,7 +89,7 @@ extension SecondViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case todayCollectionView:
-            return 10
+            return 24
         case tenDaysCollectionView:
             return 10
         case moreInfoCollectionView:
@@ -105,6 +105,8 @@ extension SecondViewController: UICollectionViewDataSource {
         switch collectionView {
         case todayCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as? TimeCollectionViewCell else { return UICollectionViewCell() }
+            
+            cell.splitTimeLine(indexPath: indexPath)
             
             return cell
         case tenDaysCollectionView:

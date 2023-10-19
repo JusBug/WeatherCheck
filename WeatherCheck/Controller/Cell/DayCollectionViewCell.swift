@@ -15,6 +15,6 @@ class DayCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureLayer() {
-        layer.cornerRadius = 20
+        layer.cornerRadius = 10
     }
 }

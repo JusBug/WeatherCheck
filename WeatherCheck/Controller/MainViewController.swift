@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = true
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
+        //searchController.searchBar.delegate = self
         self.navigationItem.searchController = searchController
         self.navigationItem.searchController?.searchBar.tintColor = UIColor.white
         self.navigationItem.searchController?.searchBar.placeholder = "Search for a city or airport"
@@ -32,7 +33,7 @@ class MainViewController: UIViewController {
         self.navigationItem.hidesSearchBarWhenScrolling = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-
+    
     private func initDelegateAndDataSource() {
         cityCollectionView.delegate = self
         cityCollectionView.dataSource = self
@@ -84,12 +85,12 @@ class MainViewController: UIViewController {
             }
         }
     }
-
+    
 }
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return weather?.timezone.count ?? 3
+        return weather?.daily.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -134,5 +135,14 @@ extension MainViewController: UISearchResultsUpdating {
         }
         
         print(text)
+        
+        //cityCollectionView.isHidden = true
+        let vc = searchController.searchResultsController as? ResultViewController
+        vc?.view.backgroundColor = .yellow
+        
     }
+}
+
+extension MainViewController: UISearchControllerDelegate {
+    
 }
