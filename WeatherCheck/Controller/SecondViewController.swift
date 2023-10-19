@@ -89,6 +89,9 @@ final class SecondViewController: UIViewController {
         todayCollectionView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
         tenDaysCollectionView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
         moreInfoCollectionView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
+        todayCollectionView.layer.cornerRadius = 10
+        tenDaysCollectionView.layer.cornerRadius = 10
+        moreInfoCollectionView.layer.cornerRadius = 10
     }
     
     @objc func backButtonTapped() {
