@@ -9,26 +9,23 @@ import UIKit
 
 class TimeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var weatherLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        configureLayer()
-    }
-    
-    private func configureLayer() {
-        layer.cornerRadius = 20
+        configureFont()
     }
     
     func configureFont() {
-        timeLabel.font = .preferredFont(forTextStyle: .title1)
-        temperatureLabel.font = .preferredFont(forTextStyle: .caption1)
+        timeLabel.font = .preferredFont(forTextStyle: .title3)
+        weatherLabel.font = .preferredFont(forTextStyle: .title2)
+        temperatureLabel.font = .preferredFont(forTextStyle: .title3)
     }
     
-    func configureLables(with weather: WeatherData, more daily: DailyWeather) {
-        timeLabel.text = "\(weather.current.temp)"
-        temperatureLabel.text = "\(daily.temp.min) - \(daily.temp.max)"
+    func configureLables() {
+        weatherLabel.text = "🌤️"
+        temperatureLabel.text = "20"
     }
     
     func splitTimeLine(indexPath: IndexPath) {

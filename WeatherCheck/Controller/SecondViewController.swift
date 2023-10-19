@@ -72,6 +72,10 @@ final class SecondViewController: UIViewController {
         todayCollectionView.register(UINib(nibName: "TimeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeCell")
         tenDaysCollectionView.register(UINib(nibName: "DayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "dayCell")
         moreInfoCollectionView.register(UINib(nibName: "moreInfoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "moreCell")
+        todayCollectionView.register(UINib(nibName: "CollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "discriptionHeader")
+        tenDaysCollectionView.register(UINib(nibName: "CollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "discriptionHeader")
+        moreInfoCollectionView.register(UINib(nibName: "CollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "discriptionHeader")
+        
     }
     
     private func configureCollectionView() {
@@ -145,6 +149,7 @@ extension SecondViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeCell", for: indexPath) as? TimeCollectionViewCell else { return UICollectionViewCell() }
             
             cell.splitTimeLine(indexPath: indexPath)
+            cell.configureLables()
             cell.backgroundColor = .clear
             
             return cell
@@ -152,6 +157,7 @@ extension SecondViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as? DayCollectionViewCell else { return UICollectionViewCell() }
             
             cell.configureCell(indexPath: indexPath)
+            cell.configureLables()
             cell.backgroundColor = .clear
             
             return cell
@@ -164,6 +170,11 @@ extension SecondViewController: UICollectionViewDataSource {
         }
         
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        // 헤더 뷰의 크기를 설정합니다.
+        return CGSize(width: collectionView.frame.width, height: 20) // 원하는 크기로 설정
     }
 }
 
@@ -211,5 +222,36 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
         }
         
         return UIEdgeInsets()
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+}
+
+extension SecondViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            // 헤더 뷰를 가져오거나 생성합니다.
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "discriptionHeader", for: indexPath) as! CollectionReusableView
+            
+            // 헤더 뷰의 타이틀 레이블에 원하는 타이틀을 설정합니다.
+            switch collectionView {
+            case todayCollectionView:
+                headerView.discriptionLabel.text = "Today conditions"
+            case tenDaysCollectionView:
+                headerView.discriptionLabel.text = "🗓️ 10-DAY FORECAST"
+            case moreInfoCollectionView:
+                headerView.discriptionLabel.text = "🌬️ AIR QUALITY"
+            default:
+                headerView.discriptionLabel.text = "No Information"
+            }
+            
+            headerView.discriptionLabel.font = UIFont.systemFont(ofSize: 10)
+            headerView.discriptionLabel.alpha = 0.5
+            
+            return headerView
+        }
+        return UICollectionReusableView()
     }
 }

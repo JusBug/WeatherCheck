@@ -30,6 +30,8 @@
 		D0F7ACEB2ADD1FE5005DECA6 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F7ACE92ADD1FE5005DECA6 /* DayCollectionViewCell.xib */; };
 		D0F7ACEE2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F7ACEC2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift */; };
 		D0F7ACEF2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F7ACED2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib */; };
+		D0FCDACC2AE1D9F1003451A8 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FCDACA2AE1D9F1003451A8 /* CollectionReusableView.swift */; };
+		D0FCDACD2AE1D9F1003451A8 /* CollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0FCDACB2AE1D9F1003451A8 /* CollectionReusableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		D0F7ACE92ADD1FE5005DECA6 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
 		D0F7ACEC2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moreInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0F7ACED2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = moreInfoCollectionViewCell.xib; sourceTree = "<group>"; };
+		D0FCDACA2AE1D9F1003451A8 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
+		D0FCDACB2AE1D9F1003451A8 /* CollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionReusableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,7 @@
 				D02C9F3D2AD7F361006AF521 /* TimeCollectionViewCell.xib */,
 				D0F7ACE92ADD1FE5005DECA6 /* DayCollectionViewCell.xib */,
 				D0F7ACED2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib */,
+				D0FCDACB2AE1D9F1003451A8 /* CollectionReusableView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				D0F7ACE82ADD1FE5005DECA6 /* DayCollectionViewCell.swift */,
 				D0F7ACEC2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift */,
 				D05EC9552AE1555700F096E8 /* ResultTableViewCell.swift */,
+				D0FCDACA2AE1D9F1003451A8 /* CollectionReusableView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 				D02C9F3F2AD7F361006AF521 /* TimeCollectionViewCell.xib in Resources */,
 				D0F7ACEF2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.xib in Resources */,
 				D0F7ACEB2ADD1FE5005DECA6 /* DayCollectionViewCell.xib in Resources */,
+				D0FCDACD2AE1D9F1003451A8 /* CollectionReusableView.xib in Resources */,
 				D0235D232AD3F9BD004437B8 /* CollectionViewCell.xib in Resources */,
 				D0235D0F2AD3EB4A004437B8 /* Main.storyboard in Resources */,
 			);
@@ -270,6 +277,7 @@
 				D03BCC4D2ADF129900AF9B4F /* ResultViewController.swift in Sources */,
 				D0235D252AD46BF5004437B8 /* SecondViewController.swift in Sources */,
 				D0235D0A2AD3EB4A004437B8 /* SceneDelegate.swift in Sources */,
+				D0FCDACC2AE1D9F1003451A8 /* CollectionReusableView.swift in Sources */,
 				D03BCC4B2ADF118400AF9B4F /* City.swift in Sources */,
 				D05EC9562AE1555700F096E8 /* ResultTableViewCell.swift in Sources */,
 				D03BCC382ADDBFBA00AF9B4F /* APIError.swift in Sources */,

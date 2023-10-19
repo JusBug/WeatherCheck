@@ -11,14 +11,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="dayCell" reuseIdentifier="" id="gTV-IL-0wX" customClass="DayCollectionViewCell" customModule="WeatherCheck" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="303" height="67"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="303" height="67"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="vJX-ss-quf">
-                        <rect key="frame" x="22.000000000000004" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="22" y="0.0" width="50" height="50"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="R2o-KB-wiW">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -26,25 +26,28 @@
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U43-sc-1Fs">
-                        <rect key="frame" x="145" y="23" width="58" height="20"/>
+                        <rect key="frame" x="142" y="23" width="58" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWq-EH-gK3">
-                        <rect key="frame" x="228" y="23" width="55" height="20"/>
+                        <rect key="frame" x="245" y="23" width="55" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k4k-kR-fHu">
-                        <rect key="frame" x="86" y="8" width="50" height="50"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5j-WP-FdS">
                         <rect key="frame" x="16" y="23" width="41.333333333333336" height="20.333333333333332"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bcc-zn-90b">
+                        <rect key="frame" x="78" y="23" width="41.333333333333343" height="20.333333333333329"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -54,13 +57,14 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
-            <size key="customSize" width="303" height="67"/>
+            <size key="customSize" width="320" height="67"/>
             <connections>
                 <outlet property="dayLabel" destination="C5j-WP-FdS" id="455-x2-GYf"/>
                 <outlet property="highTemp" destination="iWq-EH-gK3" id="mL7-d5-3s4"/>
                 <outlet property="lowTemp" destination="U43-sc-1Fs" id="LgK-ZI-5yr"/>
+                <outlet property="weatherLabel" destination="Bcc-zn-90b" id="rgi-b8-DkJ"/>
             </connections>
-            <point key="canvasLocation" x="319.84732824427482" y="13.732394366197184"/>
+            <point key="canvasLocation" x="306.87022900763355" y="13.732394366197184"/>
         </collectionViewCell>
     </objects>
     <resources>
