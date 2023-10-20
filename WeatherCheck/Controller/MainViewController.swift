@@ -20,6 +20,11 @@ class MainViewController: UIViewController {
         callAPIManager()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        super.touchesBegan(touches, with: event)
+
+    }
+    
     private func configureNavigationItem() {
         let searchController = UISearchController(searchResultsController: ResultViewController())
         searchController.obscuresBackgroundDuringPresentation = true
@@ -138,7 +143,7 @@ extension MainViewController: UISearchResultsUpdating {
         
         //cityCollectionView.isHidden = true
         let vc = searchController.searchResultsController as? ResultViewController
-        vc?.view.backgroundColor = .yellow
+        vc?.view.backgroundColor = .systemBlue
         
     }
 }

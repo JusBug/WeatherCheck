@@ -13,6 +13,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var airStatusLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var minMaxLabel: UILabel!
+    let dateManager = DateManager()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,7 +38,8 @@ class CollectionViewCell: UICollectionViewCell {
             cityLabel.text = "\(city)"
         }
         
-        airStatusLabel.text = "\(weather.current.visibility)"
+        let time = dateManager.calculateTime(weather: weather)
+        airStatusLabel.text = time
         temperatureLabel.text = "\(weather.current.temp)"
         minMaxLabel.text = "\(daily.temp.min) - \(daily.temp.max)"
     }
