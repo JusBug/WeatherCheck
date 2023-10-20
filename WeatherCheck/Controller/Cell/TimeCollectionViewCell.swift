@@ -18,7 +18,7 @@ class TimeCollectionViewCell: UICollectionViewCell {
     }
     
     func configureFont() {
-        timeLabel.font = .preferredFont(forTextStyle: .title3)
+        timeLabel.font = .preferredFont(forTextStyle: .caption1)
         weatherLabel.font = .preferredFont(forTextStyle: .title2)
         temperatureLabel.font = .preferredFont(forTextStyle: .title3)
     }

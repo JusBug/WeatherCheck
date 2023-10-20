@@ -54,7 +54,16 @@ final class SecondViewController: UIViewController {
         backButton.setTitleColor(.white, for: .highlighted)
         backButton.setTitleColor(.gray, for: .disabled)
         
+        let mapButton = UIButton(type: .custom)
+        mapButton.setImage(UIImage(systemName: "list.bullet"), for: .normal)
+        mapButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        mapButton.frame = CGRect(x: self.view.bounds.midX + 20, y: 20, width: 100, height: 40)
+        mapButton.setTitleColor(.white, for: .highlighted)
+        mapButton.setTitleColor(.gray, for: .disabled)
+        
         customBottomView.addSubview(backButton)
+        customBottomView.addSubview(mapButton)
+        customBottomView.alpha = 0.8
         
         view.addSubview(customBottomView)
     }
@@ -82,6 +91,8 @@ final class SecondViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 10
+        layout.sectionHeadersPinToVisibleBounds = true
+
         todayCollectionView.collectionViewLayout = layout
         todayCollectionView.showsHorizontalScrollIndicator = false
         tenDaysCollectionView.showsVerticalScrollIndicator = false
@@ -222,9 +233,9 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch collectionView {
         case todayCollectionView:
-            return UIEdgeInsets(top: 10, left: 10, bottom: 50, right: 10)
+            return UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
         case tenDaysCollectionView:
-            return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            return UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
         case moreInfoCollectionView:
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         default:
@@ -248,11 +259,11 @@ extension SecondViewController: UICollectionViewDelegate {
             // 헤더 뷰의 타이틀 레이블에 원하는 타이틀을 설정합니다.
             switch collectionView {
             case todayCollectionView:
-                headerView.discriptionLabel.text = "Today conditions"
+                headerView.discriptionLabel.text = "☀️ Today conditions"
             case tenDaysCollectionView:
                 headerView.discriptionLabel.text = "🗓️ 10-DAY FORECAST"
             case moreInfoCollectionView:
-                headerView.discriptionLabel.text = "🌬️ AIR QUALITY"
+                headerView.discriptionLabel.text = "❄️ AIR QUALITY"
             default:
                 headerView.discriptionLabel.text = "No Information"
             }
