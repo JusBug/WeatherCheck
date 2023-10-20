@@ -106,6 +106,7 @@ extension MainViewController: UICollectionViewDataSource {
             let daily = weather.daily[indexPath.item]
             cell.configureLables(with: weatherInfo, more: daily)
             cell.configureFont()
+            cell.setBackgroundImage(weather: weather)
         }
         
         return cell

@@ -44,6 +44,30 @@ class CollectionViewCell: UICollectionViewCell {
         minMaxLabel.text = "\(daily.temp.min) - \(daily.temp.max)"
     }
     
+    func setBackgroundImage(weather: WeatherData) {
+        let time = dateManager.calculateTime(weather: weather)
+        let backgroundImageName: String
+        let components = time.split(separator: ":")
+        
+        if components.count == 2,
+            let hour = Int(components[0]),
+            let minute = Int(components[1]) {
+            let currentMinutes = hour * 60 + minute
+
+            if currentMinutes >= (6 * 60) && currentMinutes < (18 * 60) {
+                backgroundImageName = "Sunny"
+            } else {
+                backgroundImageName = "Night"
+            }
+        } else {
+            backgroundImageName = "Sunny"
+        }
+
+        let backgroundImageView = UIImageView(image: UIImage(named: backgroundImageName))
+        backgroundImageView.contentMode = .scaleAspectFill
+        self.insertSubview(backgroundImageView, at: 0)
+    }
+    
     private func splitTimezone(timezone: String) -> (String, String)? {
         let lines = timezone.components(separatedBy: "/")
         if lines.count == 2{

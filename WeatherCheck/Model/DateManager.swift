@@ -25,4 +25,3 @@ struct DateManager {
         return localTime
     }
 }
-
