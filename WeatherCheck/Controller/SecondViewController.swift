@@ -108,13 +108,13 @@ final class SecondViewController: UIViewController {
         case 0..<6:
             backgroundImageName = "Night"
         case 6..<8:
-            backgroundImageName = "Night"
+            backgroundImageName = "Sunset"
         case 8..<12:
             backgroundImageName = "Sunny"
         case 12..<18:
             backgroundImageName = "Sunny"
         case 18..<20:
-            backgroundImageName = "Night"
+            backgroundImageName = "Sunset"
         case 20..<0:
             backgroundImageName = "Night"
         default:
