@@ -158,11 +158,11 @@
 		D0235D1E2AD3EC96004437B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D03BCC4A2ADF118400AF9B4F /* City.swift */,
 				D03BCC322ADDBC7B00AF9B4F /* Weather.swift */,
 				D03BCC342ADDBED900AF9B4F /* APIManager.swift */,
 				D0FCDACE2AE1F4A7003451A8 /* URLManager.swift */,
 				D059B3152AE1AF6C00F4E3EE /* DateManager.swift */,
-				D03BCC4A2ADF118400AF9B4F /* City.swift */,
 				D0FCDAE42AE21F77003451A8 /* CoreDataManager.swift */,
 			);
 			path = Model;

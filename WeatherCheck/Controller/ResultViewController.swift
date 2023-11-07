@@ -15,19 +15,19 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        initDelgateAndDataSource()
-//        registerNib()
+        initDelgateAndDataSource()
+        registerNib()
         self.view.backgroundColor = .systemBlue
     }
     
-//    private func initDelgateAndDataSource() {
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//    }
-//
-//    private func registerNib() {
-//        tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "resultCell")
-//    }
+    private func initDelgateAndDataSource() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+
+    private func registerNib() {
+        tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "resultCell")
+    }
 }
 
 extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
@@ -45,3 +45,13 @@ extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
+
+//extension ResultViewController: UISearchControllerDelegate {
+//    
+//}
+//
+//extension ResultViewController: UISearchResultsUpdating {
+//    func updateSearchResults(for searchController: UISearchController) {
+//        <#code#>
+//    }
+//}

@@ -26,10 +26,11 @@ class MainViewController: UIViewController {
     }
     
     private func configureNavigationItem() {
-        let searchController = UISearchController(searchResultsController: ResultViewController())
+        let searchController = UISearchController(searchResultsController: SecondViewController())
         searchController.obscuresBackgroundDuringPresentation = true
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
+        searchController.delegate = self
         //searchController.searchBar.delegate = self
         self.navigationItem.searchController = searchController
         self.navigationItem.searchController?.searchBar.tintColor = UIColor.white

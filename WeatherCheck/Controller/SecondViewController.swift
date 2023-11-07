@@ -44,26 +44,28 @@ final class SecondViewController: UIViewController {
     }
     
     private func configureTapBar() {
-        let customBottomView = UIView(frame: CGRect(x: 0, y: view.frame.size.height - 100, width: view.frame.size.width, height: 100))
+        let customBottomView = UIView(frame: CGRect(x: 0, y: view.frame.size.height - 60, width: view.frame.size.width, height: 60))
         customBottomView.backgroundColor = .darkGray
         
         let backButton = UIButton(type: .custom)
         backButton.setImage(UIImage(systemName: "list.bullet"), for: .normal)
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        backButton.frame = CGRect(x: self.view.bounds.midX + 100, y: 20, width: 100, height: 40)
+        backButton.frame = CGRect(x: self.view.bounds.midX + 120, y: 0, width: 100, height: 40)
         backButton.setTitleColor(.white, for: .highlighted)
-        backButton.setTitleColor(.gray, for: .disabled)
+        backButton.setTitleColor(.gray, for: .highlighted)
         
         let mapButton = UIButton(type: .custom)
         mapButton.setImage(UIImage(systemName: "list.bullet"), for: .normal)
         mapButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        mapButton.frame = CGRect(x: self.view.bounds.midX + 20, y: 20, width: 100, height: 40)
+        mapButton.frame = CGRect(x: self.view.bounds.midX - 220, y: 0, width: 100, height: 40)
         mapButton.setTitleColor(.white, for: .highlighted)
         mapButton.setTitleColor(.gray, for: .disabled)
         
         customBottomView.addSubview(backButton)
         customBottomView.addSubview(mapButton)
-        customBottomView.alpha = 0.8
+        customBottomView.alpha = 0.5
+        customBottomView.layer.borderColor = UIColor.white.cgColor
+        customBottomView.layer.borderWidth = 1
         
         view.addSubview(customBottomView)
     }
@@ -92,8 +94,13 @@ final class SecondViewController: UIViewController {
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 10
         layout.sectionHeadersPinToVisibleBounds = true
-
+        
+        let layoutVTC = UICollectionViewFlowLayout()
+        layoutVTC.scrollDirection = .vertical
+        layoutVTC.sectionHeadersPinToVisibleBounds = true
+        
         todayCollectionView.collectionViewLayout = layout
+        tenDaysCollectionView.collectionViewLayout = layoutVTC
         todayCollectionView.showsHorizontalScrollIndicator = false
         tenDaysCollectionView.showsVerticalScrollIndicator = false
         moreInfoCollectionView.showsVerticalScrollIndicator = false
@@ -115,22 +122,22 @@ final class SecondViewController: UIViewController {
         
         var backgroundImageName = "Night"
         
-        switch currentHour {
-        case 0..<6:
-            backgroundImageName = "Night"
-        case 6..<8:
-            backgroundImageName = "Sunset"
-        case 8..<12:
-            backgroundImageName = "Sunny"
-        case 12..<18:
-            backgroundImageName = "Sunny"
-        case 18..<20:
-            backgroundImageName = "Sunset"
-        case 20..<0:
-            backgroundImageName = "Night"
-        default:
-            backgroundImageName = "Sunny"
-        }
+//        switch currentHour {
+//        case 0..<6:
+//            backgroundImageName = "Night"
+//        case 6..<8:
+//            backgroundImageName = "Sunset"
+//        case 8..<12:
+//            backgroundImageName = "Sunny"
+//        case 12..<18:
+//            backgroundImageName = "Sunny"
+//        case 18..<20:
+//            backgroundImageName = "Sunset"
+//        case 20..<0:
+//            backgroundImageName = "Night"
+//        default:
+//            backgroundImageName = "Sunny"
+//        }
         
         let backgroundImageView = UIImageView(image: UIImage(named: backgroundImageName))
         backgroundImageView.contentMode = .scaleAspectFill
@@ -274,5 +281,18 @@ extension SecondViewController: UICollectionViewDelegate {
             return headerView
         }
         return UICollectionReusableView()
+    }
+}
+
+extension SecondViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        
+        if offset <= 0 {
+            todayCollectionView.alpha = 1.0
+        } else {
+            let alpha = 1.0 - (offset / 100)
+            todayCollectionView.alpha = max(0.0, alpha)
+        }
     }
 }
