@@ -13,6 +13,9 @@ final class SecondViewController: UIViewController {
     @IBOutlet weak var moreInfoCollectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mainTempView: UIView!
+    @IBOutlet weak var summaryTemp: UILabel!
+    
+    private var scrollMaxup: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +45,7 @@ final class SecondViewController: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, cityLabel])
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.spacing = 4
+        stackView.spacing = 6
         
         self.navigationItem.titleView = stackView
     }
@@ -69,23 +72,30 @@ final class SecondViewController: UIViewController {
         highAndLow.textColor = UIColor.white
         highAndLow.sizeToFit()
         
+        summaryTemp.text = "12º | Mostly Clear"
+        summaryTemp.textColor = UIColor.white
+        summaryTemp.sizeToFit()
+        
         mainTempView.addSubview(tempLabel)
         mainTempView.addSubview(airStatus)
         mainTempView.addSubview(highAndLow)
+        mainTempView.addSubview(summaryTemp)
         
         tempLabel.translatesAutoresizingMaskIntoConstraints = false
         airStatus.translatesAutoresizingMaskIntoConstraints = false
         highAndLow.translatesAutoresizingMaskIntoConstraints = false
+        summaryTemp.translatesAutoresizingMaskIntoConstraints = false
         
         // Centering labels in mainTempView
         tempLabel.centerXAnchor.constraint(equalTo: mainTempView.centerXAnchor).isActive = true
-        tempLabel.centerYAnchor.constraint(equalTo: mainTempView.firstBaselineAnchor).isActive = true
         airStatus.centerXAnchor.constraint(equalTo: mainTempView.centerXAnchor).isActive = true
         highAndLow.centerXAnchor.constraint(equalTo: mainTempView.centerXAnchor).isActive = true
+        summaryTemp.centerXAnchor.constraint(equalTo: mainTempView.centerXAnchor).isActive = true
         
         // Vertical spacing between labels
         airStatus.topAnchor.constraint(equalTo: tempLabel.bottomAnchor, constant: 5).isActive = true
         highAndLow.topAnchor.constraint(equalTo: airStatus.bottomAnchor, constant: 5).isActive = true
+        summaryTemp.topAnchor.constraint(equalTo: tempLabel.topAnchor, constant: 20).isActive = true
         
         // Position mainTempView at the top of the view
         mainTempView.translatesAutoresizingMaskIntoConstraints = false
@@ -93,8 +103,22 @@ final class SecondViewController: UIViewController {
         mainTempView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         mainTempView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         mainTempView.bottomAnchor.constraint(equalTo: view.topAnchor, constant: mainTempView.frame.height).isActive = true
+        
+        if scrollMaxup {
+            // Show tempLabel, airStatus, highAndLow
+            tempLabel.alpha = 1.0
+            airStatus.alpha = 1.0
+            highAndLow.alpha = 1.0
+            summaryTemp.alpha = 0.0
+        } else {
+            // Hide tempLabel, airStatus, highAndLow
+            tempLabel.alpha = 0.0
+            airStatus.alpha = 0.0
+            highAndLow.alpha = 0.0
+            summaryTemp.alpha = 1.0
+        }
     }
-
+    
     private func configureTapBar() {
         let customBottomView = UIView(frame: CGRect(x: 0, y: view.frame.size.height - 60, width: view.frame.size.width, height: 60))
         customBottomView.backgroundColor = .darkGray
@@ -346,20 +370,30 @@ extension SecondViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = self.scrollView.contentOffset.y
         
-        // 스크롤 위치에 따라 내비게이션 바의 title 및 3개의 컬렉션 뷰의 투명도를 조절합니다.
         if offset <= 0 {
             // 스크롤이 최상단에 위치할 때
             mainTempView.alpha = 1.0
-
+            mainTempView.subviews.forEach { subview in
+                if let label = subview as? UILabel {
+                    if label != summaryTemp {
+                        label.alpha = 1.0
+                        summaryTemp.alpha = 0.0
+                    }
+                }
+            }
         } else {
-            // 스크롤이 내려갈 때
-            navigationItem.title = "" // 내비게이션 바의 title 숨김
+            // 스크롤이 내려갈 때 (내려 갈수록 offset 증가)
             let alpha = 1.0 - (offset / 100) // 조절 가능한 값
-            mainTempView.alpha = max(0.0, alpha)
+            summaryTemp.alpha = max(0.0, 1-alpha)
+            
+            // 레이블 투명도 조절
+            let labelAlpha = max(0.0, alpha - 0.3) // 레이블이 더 빨리 사라지도록 조절
+            mainTempView.subviews.forEach { subview in
+                if let label = subview as? UILabel {
+                    label.alpha = labelAlpha
+                    summaryTemp.alpha = 1-labelAlpha
+                }
+            }
         }
-        
-//        if offset >= 0 {
-//            navigationItem.titleView?.alpha = 0
-//        }
     }
 }

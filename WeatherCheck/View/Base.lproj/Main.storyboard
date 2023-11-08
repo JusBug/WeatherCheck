@@ -71,8 +71,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KC5-4w-qHh">
+                                <rect key="frame" x="16" y="104" width="361" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="MQq-lF-ueC">
-                                <rect key="frame" x="16" y="114" width="361" height="704"/>
+                                <rect key="frame" x="16" y="104" width="361" height="714"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Vy-FC-pF4">
@@ -111,11 +116,13 @@
                                         </collectionViewFlowLayout>
                                         <cells/>
                                     </collectionView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KC5-4w-qHh">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="150"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPx-Ap-8Rs">
+                                        <rect key="frame" x="159" y="0.0" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
-                                    </view>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="RHa-Se-JDa"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="w5M-Bo-xmL"/>
@@ -129,6 +136,7 @@
                         <outlet property="mainTempView" destination="KC5-4w-qHh" id="l3L-fo-ErQ"/>
                         <outlet property="moreInfoCollectionView" destination="4SV-az-Ih9" id="i3d-JL-eKc"/>
                         <outlet property="scrollView" destination="MQq-lF-ueC" id="AJD-9h-N30"/>
+                        <outlet property="summaryTemp" destination="dPx-Ap-8Rs" id="i9J-d2-yM7"/>
                         <outlet property="tenDaysCollectionView" destination="6Vy-FC-pF4" id="8qn-fA-eOQ"/>
                         <outlet property="todayCollectionView" destination="OoW-1d-82y" id="Vbe-HR-wWj"/>
                     </connections>
