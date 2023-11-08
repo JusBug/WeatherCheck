@@ -99,7 +99,7 @@ final class SecondViewController: UIViewController {
         
         // Position mainTempView at the top of the view
         mainTempView.translatesAutoresizingMaskIntoConstraints = false
-        mainTempView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        mainTempView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -60).isActive = true
         mainTempView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         mainTempView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         mainTempView.bottomAnchor.constraint(equalTo: view.topAnchor, constant: mainTempView.frame.height).isActive = true
