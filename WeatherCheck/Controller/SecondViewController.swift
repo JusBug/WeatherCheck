@@ -26,14 +26,22 @@ final class SecondViewController: UIViewController {
         configureCollectionView()
         setBackgroundImageOnTime()
         configureMainTempView()
-        navigationItem.hidesBackButton = true
+        configureScrollView()
+    }
+    
+    private func configureScrollView() {
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.contentSize = CGSize(width: view.frame.width-300, height: 1000)
+        scrollView.isScrollEnabled = true
+        scrollView.alwaysBounceVertical = true
+        scrollView.alwaysBounceHorizontal = false
     }
     
     private func configureNavigationItem() {
         let titleLabel = UILabel()
         titleLabel.text = "My Location"
         titleLabel.textColor = UIColor.white
-        titleLabel.font = UIFont.systemFont(ofSize: 30)
+        titleLabel.font = UIFont.systemFont(ofSize: 20)
         titleLabel.sizeToFit()
         
         let cityLabel = UILabel()
@@ -86,18 +94,15 @@ final class SecondViewController: UIViewController {
         highAndLow.translatesAutoresizingMaskIntoConstraints = false
         summaryTemp.translatesAutoresizingMaskIntoConstraints = false
         
-        // Centering labels in mainTempView
         tempLabel.centerXAnchor.constraint(equalTo: mainTempView.centerXAnchor).isActive = true
         airStatus.centerXAnchor.constraint(equalTo: mainTempView.centerXAnchor).isActive = true
         highAndLow.centerXAnchor.constraint(equalTo: mainTempView.centerXAnchor).isActive = true
         summaryTemp.centerXAnchor.constraint(equalTo: mainTempView.centerXAnchor).isActive = true
         
-        // Vertical spacing between labels
         airStatus.topAnchor.constraint(equalTo: tempLabel.bottomAnchor, constant: 5).isActive = true
         highAndLow.topAnchor.constraint(equalTo: airStatus.bottomAnchor, constant: 5).isActive = true
         summaryTemp.topAnchor.constraint(equalTo: tempLabel.topAnchor, constant: 20).isActive = true
         
-        // Position mainTempView at the top of the view
         mainTempView.translatesAutoresizingMaskIntoConstraints = false
         mainTempView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -60).isActive = true
         mainTempView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -105,13 +110,11 @@ final class SecondViewController: UIViewController {
         mainTempView.bottomAnchor.constraint(equalTo: view.topAnchor, constant: mainTempView.frame.height).isActive = true
         
         if scrollMaxup {
-            // Show tempLabel, airStatus, highAndLow
             tempLabel.alpha = 1.0
             airStatus.alpha = 1.0
             highAndLow.alpha = 1.0
             summaryTemp.alpha = 0.0
         } else {
-            // Hide tempLabel, airStatus, highAndLow
             tempLabel.alpha = 0.0
             airStatus.alpha = 0.0
             highAndLow.alpha = 0.0
@@ -154,10 +157,6 @@ final class SecondViewController: UIViewController {
         moreInfoCollectionView.delegate = self
         moreInfoCollectionView.dataSource = self
         scrollView.delegate = self
-        scrollView.contentSize = CGSize(width: view.frame.width-300, height: 1000)
-        scrollView.isScrollEnabled = true
-        scrollView.alwaysBounceVertical = true
-        scrollView.alwaysBounceHorizontal = false
     }
     
     private func registerNib() {
@@ -172,7 +171,7 @@ final class SecondViewController: UIViewController {
     
     private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 10
         layout.sectionHeadersPinToVisibleBounds = true
         
@@ -275,11 +274,11 @@ extension SecondViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         switch collectionView {
         case todayCollectionView:
-            return CGSize(width: 100, height: 10)
+            return CGSize(width: self.view.bounds.width, height: 15)
         case tenDaysCollectionView:
-            return CGSize(width: self.view.bounds.width - 50, height: 25)
+            return CGSize(width: self.view.bounds.width / 2.3, height: 15)
         case moreInfoCollectionView:
-            return CGSize(width: self.view.bounds.width / 2.3, height: 25)
+            return CGSize(width: self.view.bounds.width / 2.3, height: 15)
         default:
             break
         }
@@ -291,7 +290,7 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case todayCollectionView:
-            return CGSize(width: 60, height: 100)
+            return CGSize(width: self.view.bounds.width/8, height: 100)
         case tenDaysCollectionView:
             return CGSize(width: self.view.bounds.width - 50, height: 40)
         case moreInfoCollectionView:
@@ -321,7 +320,7 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch collectionView {
         case todayCollectionView:
-            return UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         case tenDaysCollectionView:
             return UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
         case moreInfoCollectionView:
@@ -387,7 +386,7 @@ extension SecondViewController: UIScrollViewDelegate {
             summaryTemp.alpha = max(0.0, 1-alpha)
             
             // 레이블 투명도 조절
-            let labelAlpha = max(0.0, alpha - 0.3) // 레이블이 더 빨리 사라지도록 조절
+            let labelAlpha = max(0.0, alpha - 0.1) // 레이블이 더 빨리 사라지도록 조절
             mainTempView.subviews.forEach { subview in
                 if let label = subview as? UILabel {
                     label.alpha = labelAlpha
