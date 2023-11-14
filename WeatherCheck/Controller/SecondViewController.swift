@@ -202,22 +202,22 @@ final class SecondViewController: UIViewController {
         
         var backgroundImageName = "Night"
         
-        //        switch currentHour {
-        //        case 0..<6:
-        //            backgroundImageName = "Night"
-        //        case 6..<8:
-        //            backgroundImageName = "Sunset"
-        //        case 8..<12:
-        //            backgroundImageName = "Sunny"
-        //        case 12..<18:
-        //            backgroundImageName = "Sunny"
-        //        case 18..<20:
-        //            backgroundImageName = "Sunset"
-        //        case 20..<0:
-        //            backgroundImageName = "Night"
-        //        default:
-        //            backgroundImageName = "Sunny"
-        //        }
+        switch currentHour {
+        case 0..<6:
+            backgroundImageName = "Night"
+        case 6..<8:
+            backgroundImageName = "Sunset"
+        case 8..<12:
+            backgroundImageName = "Sunny"
+        case 12..<18:
+            backgroundImageName = "Sunny"
+        case 18..<20:
+            backgroundImageName = "Sunset"
+        case 20..<0:
+            backgroundImageName = "Night"
+        default:
+            backgroundImageName = "Sunny"
+        }
         
         let backgroundImageView = UIImageView(image: UIImage(named: backgroundImageName))
         backgroundImageView.contentMode = .scaleAspectFill
@@ -340,10 +340,8 @@ extension SecondViewController: UICollectionViewDelegateFlowLayout {
 extension SecondViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            // 헤더 뷰를 가져오거나 생성합니다.
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "discriptionHeader", for: indexPath) as! CollectionReusableView
             
-            // 헤더 뷰의 타이틀 레이블에 원하는 타이틀을 설정합니다.
             switch collectionView {
             case todayCollectionView:
                 headerView.discriptionLabel.text = "☀️ Today conditions"
@@ -390,7 +388,7 @@ extension SecondViewController: UIScrollViewDelegate {
             mainTempView.subviews.forEach { subview in
                 if let label = subview as? UILabel {
                     label.alpha = labelAlpha
-                    summaryTemp.alpha = 1-labelAlpha
+                    summaryTemp.alpha = 1 - labelAlpha
                 }
             }
         }

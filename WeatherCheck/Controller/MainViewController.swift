@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
     }
     
     private func configureNavigationItem() {
-        let searchController = UISearchController(searchResultsController: SecondViewController())
+        let searchController = UISearchController(searchResultsController: ResultViewController())
         searchController.obscuresBackgroundDuringPresentation = true
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self

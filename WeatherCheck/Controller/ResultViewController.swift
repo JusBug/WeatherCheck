@@ -8,50 +8,39 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    
-    var filteredCities = [City]()
-    var allCities = cities
-    
+    var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        initDelgateAndDataSource()
-        registerNib()
-        self.view.backgroundColor = .systemBlue
+        initTableView()
     }
     
-    private func initDelgateAndDataSource() {
+    private func initTableView() {
+        tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
-    }
-
-    private func registerNib() {
-        tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "resultCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.backgroundColor = .systemBlue
+        view.addSubview(tableView)
     }
 }
 
-extension ResultViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - UITableViewDelegate
+extension ResultViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredCities.count
+        return 5
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as? ResultTableViewCell else { return UITableViewCell() }
-        
-        let city = filteredCities[indexPath.row]
-        
-        cell.cityLabel.text = "\(city.location), \(city.nation)"
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "Result \(indexPath.row)"
         return cell
     }
-}
 
-//extension ResultViewController: UISearchControllerDelegate {
-//    
-//}
-//
-//extension ResultViewController: UISearchResultsUpdating {
-//    func updateSearchResults(for searchController: UISearchController) {
-//        <#code#>
-//    }
-//}
+
+}
+// MARK: - UITableViewDataSource
+extension ResultViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+}
