@@ -20,12 +20,10 @@ final class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationItem()
         configureTapBar()
         ininDelegateAndDataSource()
         registerNib()
         configureCollectionView()
-        configureMainTempView()
         configureScrollView()
     }
     
@@ -37,7 +35,7 @@ final class SecondViewController: UIViewController {
         scrollView.alwaysBounceHorizontal = false
     }
     
-    private func configureNavigationItem() {
+    func configureNavigationItem(weather: WeatherData) {
         let titleLabel = UILabel()
         titleLabel.text = "My Location"
         titleLabel.textColor = UIColor.white
@@ -58,16 +56,17 @@ final class SecondViewController: UIViewController {
         self.navigationItem.titleView = stackView
     }
     
-    private func configureMainTempView() {
+    func configureMainTempView(weather: WeatherData) {
         mainTempView.backgroundColor = .clear
         
         let tempLabel = UILabel()
-        tempLabel.text = "12º"
+        print(weather.current.temp)
+        print(TemperatureConverter.kelvinToCelsius(weather.current.temp))
+        tempLabel.text = "\(TemperatureConverter.kelvinToCelsius(weather.current.temp))º"
         tempLabel.textColor = UIColor.white
         tempLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         tempLabel.font = UIFont.systemFont(ofSize: 100)
         tempLabel.textAlignment = .center
-        //tempLabel.font = UIFont.systemFont(ofSize: 100)
         tempLabel.sizeToFit()
         
         let airStatus = UILabel()
@@ -104,7 +103,7 @@ final class SecondViewController: UIViewController {
         summaryTemp.topAnchor.constraint(equalTo: tempLabel.topAnchor, constant: 20).isActive = true
         
         mainTempView.translatesAutoresizingMaskIntoConstraints = false
-        mainTempView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -60).isActive = true
+        mainTempView.topAnchor.constraint(equalTo: todayCollectionView.topAnchor, constant: -200).isActive = true
         mainTempView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         mainTempView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         mainTempView.bottomAnchor.constraint(equalTo: view.topAnchor, constant: mainTempView.frame.height).isActive = true
@@ -193,31 +192,10 @@ final class SecondViewController: UIViewController {
     }
     
     @objc func backButtonTapped() {
-        self.dismiss(animated: true)
+        self.presentingViewController?.dismiss(animated: true)
     }
     
     func setBackgroundImageOnTime(weather: WeatherData) {
-//        let dateManager = DateManager()
-//        let currentHour = Calendar.current.component(.hour, from: dateManager.current)
-//        
-//        var backgroundImageName = "Night"
-//        
-//        switch currentHour {
-//        case 0..<6:
-//            backgroundImageName = "Night"
-//        case 6..<8:
-//            backgroundImageName = "Sunset"
-//        case 8..<12:
-//            backgroundImageName = "Sunny"
-//        case 12..<18:
-//            backgroundImageName = "Sunny"
-//        case 18..<20:
-//            backgroundImageName = "Sunset"
-//        case 20..<0:
-//            backgroundImageName = "Night"
-//        default:
-//            backgroundImageName = "Sunny"
-//        }
         let time = dateManager.calculateTime(weather: weather)
         let backgroundImageName: String
         let components = time.split(separator: ":")

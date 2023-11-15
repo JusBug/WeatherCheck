@@ -26,7 +26,7 @@ class MainViewController: UIViewController, UISearchControllerDelegate {
     
     private func configureNavigationItem() {
         let searchController = UISearchController(searchResultsController: ResultViewController())
-        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = true
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.delegate = self
@@ -117,6 +117,8 @@ extension MainViewController: UICollectionViewDelegate {
         
         if let weather = weather {
             secondVC.setBackgroundImageOnTime(weather: weather)
+            secondVC.configureNavigationItem(weather: weather)
+            secondVC.configureMainTempView(weather: weather)
         }
         
         secondVC.modalTransitionStyle = .coverVertical

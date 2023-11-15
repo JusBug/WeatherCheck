@@ -25,6 +25,7 @@
 		D03BCC4B2ADF118400AF9B4F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BCC4A2ADF118400AF9B4F /* City.swift */; };
 		D03BCC4D2ADF129900AF9B4F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03BCC4C2ADF129900AF9B4F /* ResultViewController.swift */; };
 		D059B3162AE1AF6C00F4E3EE /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D059B3152AE1AF6C00F4E3EE /* DateManager.swift */; };
+		D05AC9C22B04DC2500EB1443 /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AC9C12B04DC2500EB1443 /* TemperatureConverter.swift */; };
 		D05EC9562AE1555700F096E8 /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05EC9552AE1555700F096E8 /* ResultTableViewCell.swift */; };
 		D0F7ACEA2ADD1FE5005DECA6 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F7ACE82ADD1FE5005DECA6 /* DayCollectionViewCell.swift */; };
 		D0F7ACEB2ADD1FE5005DECA6 /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0F7ACE92ADD1FE5005DECA6 /* DayCollectionViewCell.xib */; };
@@ -62,6 +63,7 @@
 		D03BCC4A2ADF118400AF9B4F /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		D03BCC4C2ADF129900AF9B4F /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		D059B3152AE1AF6C00F4E3EE /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		D05AC9C12B04DC2500EB1443 /* TemperatureConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConverter.swift; sourceTree = "<group>"; };
 		D05EC9552AE1555700F096E8 /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
 		D0F7ACE82ADD1FE5005DECA6 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		D0F7ACE92ADD1FE5005DECA6 /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				D0FCDACE2AE1F4A7003451A8 /* URLManager.swift */,
 				D059B3152AE1AF6C00F4E3EE /* DateManager.swift */,
 				D0FCDAE42AE21F77003451A8 /* CoreDataManager.swift */,
+				D05AC9C12B04DC2500EB1443 /* TemperatureConverter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				D0235D0C2AD3EB4A004437B8 /* MainViewController.swift in Sources */,
 				D02C9F3E2AD7F361006AF521 /* TimeCollectionViewCell.swift in Sources */,
 				D03BCC352ADDBED900AF9B4F /* APIManager.swift in Sources */,
+				D05AC9C22B04DC2500EB1443 /* TemperatureConverter.swift in Sources */,
 				D0FCDAD32AE1F717003451A8 /* Bundle+.swift in Sources */,
 				D0FCDAE32AE21F65003451A8 /* Entity+CoreDataProperties.swift in Sources */,
 				D0F7ACEE2ADD2C4C005DECA6 /* moreInfoCollectionViewCell.swift in Sources */,

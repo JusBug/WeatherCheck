@@ -40,7 +40,7 @@ class CollectionViewCell: UICollectionViewCell {
         
         let time = dateManager.calculateTime(weather: weather)
         airStatusLabel.text = time
-        temperatureLabel.text = "\(weather.current.temp)"
+        temperatureLabel.text = "\(TemperatureConverter.kelvinToCelsius(weather.current.temp))º"
         minMaxLabel.text = "\(daily.temp.min) - \(daily.temp.max)"
     }
     
