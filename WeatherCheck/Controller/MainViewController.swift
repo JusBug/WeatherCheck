@@ -30,7 +30,6 @@ class MainViewController: UIViewController, UISearchControllerDelegate {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
         searchController.delegate = self
-        //searchController.searchBar.delegate = self
         self.navigationItem.searchController = searchController
         self.navigationItem.searchController?.searchBar.tintColor = UIColor.white
         self.navigationItem.searchController?.searchBar.placeholder = "Search for a city or airport"
