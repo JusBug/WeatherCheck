@@ -14,7 +14,8 @@ final class SecondViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mainTempView: UIView!
     @IBOutlet weak var summaryTemp: UILabel!
-    
+    let dateManager = DateManager()
+    var weather: WeatherData?
     private var scrollMaxup: Bool = true
     
     override func viewDidLoad() {
@@ -24,7 +25,6 @@ final class SecondViewController: UIViewController {
         ininDelegateAndDataSource()
         registerNib()
         configureCollectionView()
-        setBackgroundImageOnTime()
         configureMainTempView()
         configureScrollView()
     }
@@ -196,26 +196,43 @@ final class SecondViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    private func setBackgroundImageOnTime() {
-        let dateManager = DateManager()
-        let currentHour = Calendar.current.component(.hour, from: dateManager.current)
+    func setBackgroundImageOnTime(weather: WeatherData) {
+//        let dateManager = DateManager()
+//        let currentHour = Calendar.current.component(.hour, from: dateManager.current)
+//        
+//        var backgroundImageName = "Night"
+//        
+//        switch currentHour {
+//        case 0..<6:
+//            backgroundImageName = "Night"
+//        case 6..<8:
+//            backgroundImageName = "Sunset"
+//        case 8..<12:
+//            backgroundImageName = "Sunny"
+//        case 12..<18:
+//            backgroundImageName = "Sunny"
+//        case 18..<20:
+//            backgroundImageName = "Sunset"
+//        case 20..<0:
+//            backgroundImageName = "Night"
+//        default:
+//            backgroundImageName = "Sunny"
+//        }
+        let time = dateManager.calculateTime(weather: weather)
+        let backgroundImageName: String
+        let components = time.split(separator: ":")
         
-        var backgroundImageName = "Night"
-        
-        switch currentHour {
-        case 0..<6:
-            backgroundImageName = "Night"
-        case 6..<8:
-            backgroundImageName = "Sunset"
-        case 8..<12:
-            backgroundImageName = "Sunny"
-        case 12..<18:
-            backgroundImageName = "Sunny"
-        case 18..<20:
-            backgroundImageName = "Sunset"
-        case 20..<0:
-            backgroundImageName = "Night"
-        default:
+        if components.count == 2,
+            let hour = Int(components[0]),
+            let minute = Int(components[1]) {
+            let currentMinutes = hour * 60 + minute
+
+            if currentMinutes >= (6 * 60) && currentMinutes < (18 * 60) {
+                backgroundImageName = "Sunny"
+            } else {
+                backgroundImageName = "Night"
+            }
+        } else {
             backgroundImageName = "Sunny"
         }
         

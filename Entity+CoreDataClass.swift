@@ -2,7 +2,7 @@
 //  Entity+CoreDataClass.swift
 //  WeatherCheck
 //
-//  Created by 박종화 on 10/20/23.
+//  Created by Jusbug on 10/20/23.
 //
 //
 

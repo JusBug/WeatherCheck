@@ -16,7 +16,6 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         initTableView()
         loadCities()
-        print("CityCount \(filteredCities.count), \(allCities.count)")
     }
     
     private func initTableView() {

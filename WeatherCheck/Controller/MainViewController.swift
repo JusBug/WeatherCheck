@@ -22,7 +22,6 @@ class MainViewController: UIViewController, UISearchControllerDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         super.touchesBegan(touches, with: event)
-        
     }
     
     private func configureNavigationItem() {
@@ -56,7 +55,6 @@ class MainViewController: UIViewController, UISearchControllerDelegate {
     }
     
     @IBAction func tapEditButton(_ sender: Any) {
-        print("dasdasds")
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let editList = UIAlertAction(title: "Edit List", style: .default)
         let celsius = UIAlertAction(title: "Celsius", style: .default)
@@ -79,7 +77,6 @@ class MainViewController: UIViewController, UISearchControllerDelegate {
                 do {
                     let decodedData = try jsonDecoder.decode(WeatherData.self, from: data)
                     self.weather = decodedData
-                    print(decodedData)
                     DispatchQueue.main.async {
                         self.cityCollectionView.reloadData()
                     }
@@ -91,7 +88,6 @@ class MainViewController: UIViewController, UISearchControllerDelegate {
             }
         }
     }
-    
 }
 
 extension MainViewController: UICollectionViewDataSource {
@@ -116,7 +112,13 @@ extension MainViewController: UICollectionViewDataSource {
 
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "secondViewController") else { return }
+        guard let secondVC = self.storyboard?.instantiateViewController(withIdentifier: "secondViewController") as? SecondViewController else {
+            return
+        }
+        
+        if let weather = weather {
+            secondVC.setBackgroundImageOnTime(weather: weather)
+        }
         
         secondVC.modalTransitionStyle = .coverVertical
         secondVC.modalPresentationStyle = .fullScreen

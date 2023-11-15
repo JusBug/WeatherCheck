@@ -2,7 +2,7 @@
 //  ResultTableViewCell.swift
 //  WeatherCheck
 //
-//  Created by 박종화 on 10/19/23.
+//  Created by Jusbug on 10/19/23.
 //
 
 import UIKit
