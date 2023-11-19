@@ -75,7 +75,7 @@ final class SecondViewController: UIViewController {
         airStatus.sizeToFit()
         
         let highAndLow = UILabel()
-        highAndLow.text = "H:14º L:1º"
+        //highAndLow.text = "H:\(TemperatureConverter.kelvinToCelsius(daily.temp.min))º L:\(TemperatureConverter.kelvinToCelsius(daily.temp.max))º"
         highAndLow.textColor = UIColor.white
         highAndLow.sizeToFit()
         
@@ -103,7 +103,7 @@ final class SecondViewController: UIViewController {
         summaryTemp.topAnchor.constraint(equalTo: tempLabel.topAnchor, constant: 20).isActive = true
         
         mainTempView.translatesAutoresizingMaskIntoConstraints = false
-        mainTempView.topAnchor.constraint(equalTo: todayCollectionView.topAnchor, constant: -200).isActive = true
+        mainTempView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -60).isActive = true
         mainTempView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         mainTempView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         mainTempView.bottomAnchor.constraint(equalTo: view.topAnchor, constant: mainTempView.frame.height).isActive = true

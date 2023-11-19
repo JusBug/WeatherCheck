@@ -41,7 +41,7 @@ class CollectionViewCell: UICollectionViewCell {
         let time = dateManager.calculateTime(weather: weather)
         airStatusLabel.text = time
         temperatureLabel.text = "\(TemperatureConverter.kelvinToCelsius(weather.current.temp))º"
-        minMaxLabel.text = "\(daily.temp.min) - \(daily.temp.max)"
+        minMaxLabel.text = "H:\(TemperatureConverter.kelvinToCelsius(daily.temp.min))º L:\(TemperatureConverter.kelvinToCelsius(daily.temp.max))º"
     }
     
     func setBackgroundImage(weather: WeatherData) {
