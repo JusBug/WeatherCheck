@@ -21,11 +21,12 @@ final class CoreDataManager {
         }
     }
     
-    func createEntity(city: String, latitude: String, longitude: String) {
+    func createEntity(city: String, time: String, temp: String, lowhigh: String) {
         let newEntity = Entity(context: context)
         newEntity.city = city
-        newEntity.latitude = latitude
-        newEntity.longitude = longitude
+        newEntity.time = time
+        newEntity.temp = temp
+        newEntity.lowhigh = lowhigh
         
         saveToContext()
         getAllEntity()
@@ -39,10 +40,11 @@ final class CoreDataManager {
         }
     }
     
-    func updateEntity(entity: Entity, city: String, latitude: String, longitude: String) {
+    func updateEntity(entity: Entity, city: String, time: String, temp: String, lowhigh: String) {
         entity.city = city
-        entity.latitude = latitude
-        entity.longitude = longitude
+        entity.time = time
+        entity.temp = temp
+        entity.lowhigh = lowhigh
         
         saveToContext()
     }

@@ -2,7 +2,7 @@
 //  Entity+CoreDataProperties.swift
 //  WeatherCheck
 //
-//  Created by Jusbug on 10/20/23.
+//  Created by 박종화 on 11/20/23.
 //
 //
 
@@ -16,9 +16,10 @@ extension Entity {
         return NSFetchRequest<Entity>(entityName: "Entity")
     }
 
+    @NSManaged public var temp: String?
+    @NSManaged public var time: String?
     @NSManaged public var city: String?
-    @NSManaged public var latitude: String?
-    @NSManaged public var longitude: String?
+    @NSManaged public var lowhigh: String?
 
 }
 

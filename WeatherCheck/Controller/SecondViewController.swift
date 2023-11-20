@@ -75,7 +75,7 @@ final class SecondViewController: UIViewController {
         airStatus.sizeToFit()
         
         let highAndLow = UILabel()
-        //highAndLow.text = "H:\(TemperatureConverter.kelvinToCelsius(daily.temp.min))º L:\(TemperatureConverter.kelvinToCelsius(daily.temp.max))º"
+        highAndLow.text = "dd" //"H:\(TemperatureConverter.kelvinToCelsius(daily.temp.min))º L:\(TemperatureConverter.kelvinToCelsius(daily.temp.max))º"
         highAndLow.textColor = UIColor.white
         highAndLow.sizeToFit()
         
