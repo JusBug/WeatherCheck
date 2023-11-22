@@ -16,6 +16,7 @@ final class SecondViewController: UIViewController {
     @IBOutlet weak var summaryTemp: UILabel!
     let dateManager = DateManager()
     var weather: WeatherData?
+    let coreDate = CoreDataManager.shared
     private var scrollMaxup: Bool = true
     
     override func viewDidLoad() {
@@ -119,6 +120,10 @@ final class SecondViewController: UIViewController {
             highAndLow.alpha = 0.0
             summaryTemp.alpha = 1.0
         }
+    }
+    
+    @IBAction func didTapAddButton(_ sender: Any) {
+        coreDate.createEntity(city: "11", time: "11", temp: "11", lowhigh: "11")
     }
     
     private func configureTapBar() {
